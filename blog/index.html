@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<title>Beyond Rankings | Mahalakshmi Marimuthu</title>
+<meta name="description" content="SEO insights, AI search strategies, and digital marketing tips by Mahalakshmi Marimuthu.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a26;
+    --accent: #7c6af7; --accent2: #f7a26a; --accent3: #6af7c8;
+    --text: #e8e8f0; --muted: #8888a8; --border: rgba(124,106,247,0.18);
+    --card: rgba(18,18,28,0.85);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; font-size: 16px; line-height: 1.7; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.35;
+  }
+  .bg-glow {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 20%, rgba(124,106,247,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 85% 75%, rgba(247,162,106,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(106,247,200,0.05) 0%, transparent 70%);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(10,10,15,0.75); border-bottom: 1px solid var(--border);
+  }
+  .nav-logo-mark {
+    width: 28px; height: 28px; border-radius: 7px; background: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-size: 0.95rem; font-weight: 900;
+    color: #fff !important; margin-right: 0.55rem; flex-shrink: 0; line-height: 1;
+    -webkit-text-fill-color: #fff !important;
+  }
+  .nav-logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: center; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links .cta-btn { background: var(--accent); color: #fff; padding: 0.42rem 1.1rem; border-radius: 4px; font-size: 0.78rem; }
+  .nav-links .cta-btn::after { display: none; }
+  .nav-links .cta-btn:hover { background: #6a58e8; color: #fff; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 700; transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+
+  /* HERO BANNER */
+  .blog-hero {
+    padding: 140px 5% 60px;
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .blog-hero-title { font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+  .blog-hero-title span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .blog-hero-desc { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.8; margin-bottom: 2rem; }
+
+  /* FILTER TABS */
+  .filter-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .filter-tab { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.2s; background: transparent; }
+  .filter-tab:hover, .filter-tab.active { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
+
+  /* BLOG GRID */
+  .blog-section { position: relative; z-index: 1; padding: 0 5% 100px; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+  .blog-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .blog-card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .blog-card-top { padding: 1.8rem 1.8rem 0; }
+  .blog-card-category { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .blog-card-title { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 0.7rem; }
+  .blog-card-excerpt { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+  .blog-card-bottom { padding: 1.2rem 1.8rem 1.5rem; margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); margin-top: 1.2rem; }
+  .blog-card-meta { font-size: 0.72rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .blog-card-arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.85rem; transition: all 0.2s; }
+  .blog-card:hover .blog-card-arrow { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .blog-tag { display: inline-block; font-size: 0.68rem; font-family: 'DM Mono', monospace; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); margin-right: 0.35rem; margin-top: 0.7rem; }
+
+  /* COMING SOON CARD */
+  .coming-soon-card {
+    background: var(--card); border: 1px dashed rgba(124,106,247,0.3); border-radius: 14px;
+    padding: 2.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 0.8rem; min-height: 220px;
+  }
+  .coming-soon-icon { font-size: 2rem; }
+  .coming-soon-text { font-size: 0.85rem; color: var(--muted); }
+
+  /* FOOTER */
+  .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
+  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-slim-inner p { font-size: 0.78rem; color: var(--muted); }
+  .social-row { display: flex; gap: 0.75rem; }
+  .social-btn { width: 34px; height: 34px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 750px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .blog-hero { animation: fadeUp 0.6s ease both; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-mark">M</span>Mahalakshmi <span>&nbsp;·&nbsp;</span> Marimuthu</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../index.html#contact" class="cta-btn">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#experience">Experience</a>
+  <a href="../tools/index.html">Tools</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="section-label">// beyond rankings</div>
+  <h1 class="blog-hero-title">Beyond <span>Rankings</span></h1>
+  <p class="blog-hero-desc">Articles on SEO strategy, AI search, content planning, and organic growth — published regularly to help you think deeper and execute smarter.</p>
+  <div class="filter-tabs">
+    <button class="filter-tab active">All</button>
+    <button class="filter-tab">Technical SEO</button>
+    <button class="filter-tab">AI & Automation</button>
+    <button class="filter-tab">Content Strategy</button>
+    <button class="filter-tab">AEO & GEO</button>
+    <button class="filter-tab">Tools</button>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<div class="blog-section">
+  <div class="blog-grid" style="max-width:1200px;margin:0 auto">
+    <div class="coming-soon-card" style="min-height:260px;grid-column:1/-1">
+      <div class="coming-soon-icon">✍️</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);">Posts Coming Soon</div>
+      <div class="coming-soon-text" style="max-width:480px;">I'm working on in-depth articles on SEO, AI search, and automation. Check back soon for fresh insights!</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-slim">
+  <div class="footer-slim-inner">
+    <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
+      <a href="mailto:mahalakshmi.tnj@gmail.com" class="social-btn" title="Email">✉</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filter tabs (UI only for now)
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.blog-card, .coming-soon-card').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
