@@ -71,6 +71,11 @@
   .tool-badge.paid { background: rgba(247,162,106,0.1); border: 1px solid rgba(247,162,106,0.25); color: var(--accent2); }
   .tool-badge.category { background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); }
 
+  /* TOP LAUNCH BUTTON */
+  .launch-top { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: #fff; text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; font-family: 'Inter', sans-serif; transition: background 0.2s, transform 0.2s; margin-top: 1.2rem; }
+  .launch-top:hover { background: #6a58e8; transform: translateY(-2px); }
+  .launch-hint { font-size: 0.72rem; color: var(--muted); margin-top: 0.5rem; font-family: 'DM Mono', monospace; }
+
   /* TOOL BODY */
   .tool-body { position: relative; z-index: 1; padding: 2.5rem 5% 80px; max-width: 860px; margin: 0 auto; }
   .tool-body h2 { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--text); }
@@ -156,6 +161,8 @@
       <p class="tool-subtitle">Extract H1, meta title, meta description &amp; meta keywords from up to 200 URLs in one go — built for SEOs who audit at scale.</p>
     </div>
   </div>
+  <a href="https://bulk-meta-extractor.streamlit.app" target="_blank" class="launch-top">🚀 Launch the Tool — Free →</a>
+  <div class="launch-hint">opens in a new tab · no sign-up needed</div>
   <div class="tool-meta">
     <span class="tool-badge free">Free</span>
     <span class="tool-badge category">On-Page SEO</span>
