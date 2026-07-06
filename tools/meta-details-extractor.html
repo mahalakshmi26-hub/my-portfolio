@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+
+<!-- ═══════════════════════════════════════════
+     CHANGE THESE FOR EVERY NEW TOOL PAGE
+     ═══════════════════════════════════════════ -->
+<title>Meta Details Extractor | SEO Tools by Mahalakshmi</title>
+<meta name="description" content="Free bulk meta tag extractor — pull H1, meta title, description & keywords from up to 200 URLs at once, with character counts and CSV export.">
+<!-- ═══════════════════════════════════════════ -->
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a26;
+    --accent: #7c6af7; --accent2: #f7a26a; --accent3: #6af7c8;
+    --text: #e8e8f0; --muted: #8888a8; --border: rgba(124,106,247,0.18);
+    --card: rgba(18,18,28,0.85);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; font-size: 16px; line-height: 1.7; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.35;
+  }
+  .bg-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0; background: radial-gradient(ellipse 60% 50% at 15% 20%, rgba(124,106,247,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 85% 75%, rgba(247,162,106,0.08) 0%, transparent 70%); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(24px) saturate(180%); background: rgba(10,10,15,0.75); border-bottom: 1px solid var(--border); }
+  .nav-logo-mark { width: 28px; height: 28px; border-radius: 7px; background: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-size: 0.95rem; font-weight: 900; color: #fff !important; margin-right: 0.55rem; flex-shrink: 0; line-height: 1; -webkit-text-fill-color: #fff !important; }
+  .nav-logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: center; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links .cta-btn { background: var(--accent); color: #fff; padding: 0.42rem 1.1rem; border-radius: 4px; font-size: 0.78rem; }
+  .nav-links .cta-btn::after { display: none; }
+  .nav-links .cta-btn:hover { background: #6a58e8; color: #fff; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 700; }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+
+  /* BACK BUTTON */
+  .back-bar { position: relative; z-index: 1; padding: 90px 5% 0; max-width: 860px; margin: 0 auto; }
+  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-family: 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .back-btn:hover { color: var(--accent); }
+
+  /* TOOL HEADER */
+  .tool-header { position: relative; z-index: 1; padding: 2.5rem 5% 0; max-width: 860px; margin: 0 auto; animation: fadeUp 0.6s ease both; }
+  .tool-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent3); margin-bottom: 1rem; }
+  .tool-header-top { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.2rem; }
+  .tool-header-icon { font-size: 2.5rem; flex-shrink: 0; }
+  .tool-title { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.2; }
+  .tool-subtitle { font-size: 1rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.7; }
+  .tool-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .tool-badge { font-size: 0.68rem; font-family: 'DM Mono', monospace; padding: 0.25rem 0.75rem; border-radius: 100px; }
+  .tool-badge.free { background: rgba(106,247,200,0.1); border: 1px solid rgba(106,247,200,0.25); color: var(--accent3); }
+  .tool-badge.paid { background: rgba(247,162,106,0.1); border: 1px solid rgba(247,162,106,0.25); color: var(--accent2); }
+  .tool-badge.category { background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); }
+
+  /* TOOL BODY */
+  .tool-body { position: relative; z-index: 1; padding: 2.5rem 5% 80px; max-width: 860px; margin: 0 auto; }
+  .tool-body h2 { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--text); }
+  .tool-body p { font-size: 0.97rem; color: #c8c8e0; line-height: 1.9; margin-bottom: 1.4rem; }
+  .tool-body strong { color: var(--text); font-weight: 600; }
+  .tool-body ul, .tool-body ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+  .tool-body li { font-size: 0.97rem; color: #c8c8e0; line-height: 1.9; margin-bottom: 0.4rem; }
+
+  /* FEATURE CARDS */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0 2.5rem; }
+  .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; }
+  .feature-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .feature-title { font-family: 'Sora', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+  .feature-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0 2.5rem; }
+  .step { display: flex; gap: 1rem; align-items: flex-start; }
+  .step-num { width: 30px; height: 30px; border-radius: 50%; background: rgba(124,106,247,0.15); border: 1px solid rgba(124,106,247,0.3); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 700; color: var(--accent); flex-shrink: 0; margin-top: 0.2rem; }
+  .step-content { flex: 1; }
+  .step-title { font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+  .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* CTA BOX */
+  .cta-box { background: linear-gradient(135deg, rgba(124,106,247,0.12), rgba(247,162,106,0.08)); border: 1px solid rgba(124,106,247,0.3); border-radius: 14px; padding: 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-box-title { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .cta-box p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.2rem; }
+  .cta-box a { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: #fff; text-decoration: none; padding: 0.65rem 1.6rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; transition: background 0.2s; }
+  .cta-box a:hover { background: #6a58e8; }
+
+  /* FOOTER */
+  .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
+  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-slim-inner p { font-size: 0.78rem; color: var(--muted); }
+  .social-row { display: flex; gap: 0.75rem; }
+  .social-btn { width: 34px; height: 34px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 750px) { .nav-links { display: none; } .hamburger { display: flex; } .features-grid { grid-template-columns: 1fr; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-mark">M</span>Mahalakshmi <span>&nbsp;·&nbsp;</span> Marimuthu</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
+    <li><a href="index.html" class="active">Tools</a></li>
+    <li><a href="../index.html#contact" class="cta-btn">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../blog/index.html">Blog</a>
+  <a href="index.html">Tools</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<!-- BACK BUTTON -->
+<div class="back-bar">
+  <a href="index.html" class="back-btn">← Back to Tools</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TOOL HEADER — CHANGE FOR EVERY TOOL
+     ═══════════════════════════════════════════ -->
+<div class="tool-header">
+  <div class="tool-label">// free tool · built by me</div>
+  <div class="tool-header-top">
+    <div class="tool-header-icon">🔍</div>
+    <div>
+      <h1 class="tool-title">Meta Details Extractor</h1>
+      <p class="tool-subtitle">Extract H1, meta title, meta description &amp; meta keywords from up to 200 URLs in one go — built for SEOs who audit at scale.</p>
+    </div>
+  </div>
+  <div class="tool-meta">
+    <span class="tool-badge free">Free</span>
+    <span class="tool-badge category">On-Page SEO</span>
+    <span class="tool-badge category">Bulk Audit</span>
+    <span class="tool-badge category">Python + Streamlit</span>
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════ -->
+
+
+<!-- ═══════════════════════════════════════════
+     TOOL CONTENT — FILL IN YOUR TOOL DETAILS
+     ═══════════════════════════════════════════ -->
+<div class="tool-body">
+
+  <!-- WHAT IT DOES -->
+  <h2>What This Tool Does</h2>
+  <p>Checking meta tags one URL at a time is slow. This tool fetches up to <strong>200 URLs in parallel</strong> and returns each page’s H1, meta title, meta description and meta keywords in a single table — with character counts and “missing” flags so on-page gaps jump out instantly. Ideal for content audits, migration QA and competitor teardowns.</p>
+
+  <!-- FEATURES -->
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Bulk Extraction</div>
+      <div class="feature-desc">Paste up to 200 URLs — fetched in parallel, results in seconds, in your original order.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📏</div>
+      <div class="feature-title">Character Counts</div>
+      <div class="feature-desc">Title and description lengths included, so truncation risks are visible at a glance.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚩</div>
+      <div class="feature-title">Missing-Tag Flags</div>
+      <div class="feature-desc">Pages without an H1, title or description are flagged ❌ and counted in the summary.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📥</div>
+      <div class="feature-title">CSV & Excel Export</div>
+      <div class="feature-desc">Download the full results table for your audit deck or client report in one click.</div>
+    </div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <h2>How to Use It</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Paste Your URLs</div>
+        <div class="step-desc">One URL per line — https:// is added automatically if you skip it. Duplicates are removed.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Hit Extract</div>
+        <div class="step-desc">The tool fetches all pages in parallel and shows a live progress bar.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Review & Download</div>
+        <div class="step-desc">Scan the summary metrics and results table, then export as CSV or Excel.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY I USE IT -->
+  <h2>Why I Built It</h2>
+  <p>As an SEO working across hundreds of product pages, I needed a fast way to spot meta-tag gaps without firing up a full crawler. I built this with Python and Streamlit so it stays free, fast and simple. I use it for:</p>
+  <ul>
+    <li>Pre- and post-migration QA — confirming titles and descriptions survived a site change</li>
+    <li>Quick on-page audits before deeper crawls — finding missing H1s and descriptions in minutes</li>
+    <li>Competitor snapshots — pulling meta patterns across rival landing pages for positioning ideas</li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-box-title">Launch the Tool</div>
+    <p>100% free, no sign-up needed. Opens in a new tab.</p>
+    <a href="https://bulk-meta-extractor.streamlit.app" target="_blank">Open Meta Details Extractor →</a>
+  </div>
+
+</div>
+<!-- ═══════════════════════════════════════════ -->
+
+<footer class="footer-slim">
+  <div class="footer-slim-inner">
+    <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
+      <a href="mailto:mahalakshmi.tnj@gmail.com" class="social-btn" title="Email">✉</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
