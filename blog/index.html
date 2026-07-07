@@ -88,7 +88,7 @@
     background: var(--card); border: 1px solid var(--border); border-radius: 14px;
     overflow: hidden; text-decoration: none; color: inherit;
     display: flex; flex-direction: column;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, opacity 0.3s;
   }
   .blog-card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
   .blog-card-top { padding: 1.8rem 1.8rem 0; }
@@ -109,6 +109,12 @@
   }
   .coming-soon-icon { font-size: 2rem; }
   .coming-soon-text { font-size: 0.85rem; color: var(--muted); }
+
+  /* NO RESULTS STATE */
+  .no-results {
+    grid-column: 1/-1; text-align: center; padding: 3rem 1rem; color: var(--muted);
+    font-family: 'DM Mono', monospace; font-size: 0.85rem;
+  }
 
   /* FOOTER */
   .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
@@ -161,21 +167,35 @@
   <h1 class="blog-hero-title">Beyond <span>Rankings</span></h1>
   <p class="blog-hero-desc">Articles on SEO strategy, AI search, content planning, and organic growth — published regularly to help you think deeper and execute smarter.</p>
   <div class="filter-tabs">
-    <button class="filter-tab active">All</button>
-    <button class="filter-tab">Technical SEO</button>
-    <button class="filter-tab">AI & Automation</button>
-    <button class="filter-tab">Content Strategy</button>
-    <button class="filter-tab">AEO & GEO</button>
-    <button class="filter-tab">Tools</button>
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="technical-seo">Technical SEO</button>
+    <button class="filter-tab" data-filter="ai-automation">AI & Automation</button>
+    <button class="filter-tab" data-filter="content-strategy">Content Strategy</button>
+    <button class="filter-tab" data-filter="aeo-geo">AEO & GEO</button>
+    <button class="filter-tab" data-filter="tools">Tools</button>
   </div>
 </div>
 
 <!-- BLOG GRID -->
 <div class="blog-section">
-  <div class="blog-grid" style="max-width:1200px;margin:0 auto">
+  <div class="blog-grid" style="max-width:1200px;margin:0 auto" id="blogGrid">
 
-    <!-- Post 1 -->
-    <a href="what-is-aeo-explained-simply.html" class="blog-card">
+    <!-- Post: Internal Linking 101 -->
+    <a href="internal-linking-101-beginners-guide.html" class="blog-card" data-category="content-strategy">
+      <div class="blog-card-top">
+        <div class="blog-card-category">Content Strategy</div>
+        <div class="blog-card-title">Internal Linking 101: A Simple Guide for Beginners</div>
+        <div class="blog-card-excerpt">What internal links actually are, why they matter for SEO, and a simple 5-step process to start doing it right — no tools required.</div>
+        <span class="blog-tag">Internal Linking</span><span class="blog-tag">On-Page SEO</span>
+      </div>
+      <div class="blog-card-bottom">
+        <span class="blog-card-meta">July 2026 · 5 min read</span>
+        <div class="blog-card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Post: AEO Explained -->
+    <a href="what-is-aeo-explained-simply.html" class="blog-card" data-category="aeo-geo">
       <div class="blog-card-top">
         <div class="blog-card-category">AEO & GEO</div>
         <div class="blog-card-title">What is AEO (Answer Engine Optimization)? Explained Simply</div>
@@ -188,7 +208,7 @@
       </div>
     </a>
 
-    <div class="coming-soon-card" style="min-height:260px;">
+    <div class="coming-soon-card" data-category="all" style="min-height:260px;">
       <div class="coming-soon-icon">✍️</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);">More Posts Coming Soon</div>
       <div class="coming-soon-text" style="max-width:480px;">Publishing new insights every week on SEO, AI search, and growth automation.</div>
@@ -209,11 +229,37 @@
 </footer>
 
 <script>
-  // Filter tabs (UI only for now)
-  document.querySelectorAll('.filter-tab').forEach(tab => {
+  // Filter tabs — actually filters the grid now
+  const tabs = document.querySelectorAll('.filter-tab');
+  const grid = document.getElementById('blogGrid');
+
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+
+      const filter = tab.dataset.filter;
+      const cards = grid.querySelectorAll('.blog-card, .coming-soon-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        const matches = filter === 'all' || category === filter || category === 'all';
+        card.style.display = matches ? '' : 'none';
+        if (matches && card.classList.contains('blog-card')) visibleCount++;
+      });
+
+      // Remove any previous "no results" message
+      const existingMsg = grid.querySelector('.no-results');
+      if (existingMsg) existingMsg.remove();
+
+      // Show a message if a specific filter has no matching posts yet
+      if (filter !== 'all' && visibleCount === 0) {
+        const msg = document.createElement('div');
+        msg.className = 'no-results';
+        msg.textContent = 'No posts in this category yet — check back soon!';
+        grid.appendChild(msg);
+      }
     });
   });
 
