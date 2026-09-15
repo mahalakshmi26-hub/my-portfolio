@@ -66,16 +66,28 @@
   .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
 
   /* HERO */
-  .tools-hero { padding: 140px 5% 60px; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+  .tools-hero { padding: 100px 5% 20px; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
   .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-  .tools-hero-title { font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+  .tools-hero-top { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .tools-hero-text { flex: 1; min-width: 260px; }
+  .tools-hero-title { font-family: 'Sora', sans-serif; font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 800; line-height: 1.15; }
   .tools-hero-title span { background: linear-gradient(90deg, var(--accent3), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .tools-hero-desc { font-size: 1rem; color: var(--muted); max-width: 580px; line-height: 1.8; }
+  .tools-hero-desc { font-size: 0.92rem; color: var(--muted); max-width: 580px; line-height: 1.7; margin-top: 0.7rem; }
+  .tools-search-wrap { position: relative; width: 320px; max-width: 100%; flex-shrink: 0; }
+  .tools-search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .tools-search-input {
+    width: 100%; padding: 0.75rem 1.1rem 0.75rem 2.7rem; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--border); color: var(--text);
+    font-family: 'Inter', sans-serif; font-size: 0.88rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .tools-search-input::placeholder { color: var(--muted); }
+  .tools-search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,106,247,0.15); }
 
   /* TOOLS SECTION */
   .tools-section { position: relative; z-index: 1; padding: 0 5% 100px; }
   .tools-inner { max-width: 1200px; margin: 0 auto; }
-  .tools-category-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent3); margin: 3rem 0 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .tools-category-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent3); margin: 1.4rem 0 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
   .tools-category-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
   .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
   .tool-card {
@@ -104,18 +116,29 @@
   .coming-soon-title { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 0.8rem; }
   .coming-soon-desc { font-size: 0.92rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
 
-  /* FOOTER */
-  .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
-  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-slim-inner p { font-size: 0.78rem; color: var(--muted); }
-  .social-row { display: flex; gap: 0.75rem; }
-  .social-btn { width: 34px; height: 34px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+  .tools-no-results { display: none; text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.9rem; }
+  .tools-no-results.show { display: block; }
+
+  /* FOOTER (fixed to viewport) */
+  .footer-slim {
+    background: var(--surface); border-top: 1px solid var(--border); padding: 0.6rem 5%;
+    position: fixed; left: 0; right: 0; bottom: 0; width: 100%; z-index: 90;
+  }
+  body { padding-bottom: 50px; }
+  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+  .footer-slim-inner p { font-size: 0.72rem; color: var(--muted); }
+  .social-row { display: flex; gap: 0.6rem; }
+  .social-btn { width: 26px; height: 26px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.72rem; transition: all 0.2s; }
   .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
 
   @media (max-width: 750px) {
     .tools-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .footer-slim-inner { justify-content: center; text-align: center; }
+    body { padding-bottom: 84px; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -150,8 +173,16 @@
 
 <!-- HERO -->
 <div class="tools-hero">
-  <div class="section-label">// my toolkit</div>
-  <h1 class="tools-hero-title">Tools That <span>Power My SEO</span></h1>
+  <div class="tools-hero-top">
+    <div class="tools-hero-text">
+      <div class="section-label">// my toolkit</div>
+      <h1 class="tools-hero-title">Tools That <span>Power My SEO</span></h1>
+    </div>
+    <div class="tools-search-wrap">
+      <svg class="tools-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="toolSearch" class="tools-search-input" placeholder="Search tools by name, tag, or use case…" autocomplete="off">
+    </div>
+  </div>
   <p class="tools-hero-desc">A curated collection of tools I use daily for technical SEO, AI-driven research, content strategy, and automation — many of them free.</p>
 </div>
 
@@ -214,6 +245,7 @@
 </a>
 
     </div>
+    <p class="tools-no-results" id="toolsNoResults">No tools match your search. Try a different keyword.</p>
   </div>
 </div>
 
@@ -223,7 +255,8 @@
     <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
     <div class="social-row">
       <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
-      <a href="mailto:mahalakshmi.tnj@gmail.com" class="social-btn" title="Email">✉</a>
+      <a href="mailto:mahalakshmi.digitalpro@gmail.com" class="social-btn" title="Email">✉</a>
+      <a href="https://www.instagram.com/mahapravin26/" target="_blank" class="social-btn" title="Instagram">IG</a>
     </div>
   </div>
 </footer>
@@ -238,6 +271,21 @@
     el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s';
     observer.observe(el);
+  });
+
+  // Tool search — live filter by name, description, and tags
+  const toolSearchInput = document.getElementById('toolSearch');
+  const toolCards = document.querySelectorAll('.tool-card');
+  const toolsNoResults = document.getElementById('toolsNoResults');
+  toolSearchInput.addEventListener('input', () => {
+    const query = toolSearchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+    toolCards.forEach(card => {
+      const matches = card.textContent.toLowerCase().includes(query);
+      card.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+    toolsNoResults.classList.toggle('show', visibleCount === 0 && query !== '');
   });
 </script>
 </body>
