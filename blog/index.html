@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E">
-<title>Beyond Rankings | Mahalakshmi Marimuthu</title>
-<meta name="description" content="SEO insights, AI search strategies, and digital marketing tips by Mahalakshmi Marimuthu.">
+<title>SEO Tools | Mahalakshmi Marimuthu</title>
+<meta name="description" content="Free SEO tools and resources curated by Mahalakshmi Marimuthu — for technical SEO, AI search, and automation.">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -65,73 +65,84 @@
   .mobile-menu a:hover { color: var(--accent); }
   .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
 
-  /* HERO BANNER */
-  .blog-hero {
-    padding: 140px 5% 60px;
-    position: relative; z-index: 1;
-    max-width: 1200px; margin: 0 auto;
-  }
+  /* HERO */
+  .tools-hero { padding: 100px 5% 20px; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
   .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-  .blog-hero-title { font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
-  .blog-hero-title span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .blog-hero-desc { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.8; margin-bottom: 2rem; }
-
-  /* FILTER TABS */
-  .filter-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem; }
-  .filter-tab { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.2s; background: transparent; }
-  .filter-tab:hover, .filter-tab.active { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
-
-  /* BLOG GRID */
-  .blog-section { position: relative; z-index: 1; padding: 0 5% 100px; }
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-  .blog-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-    overflow: hidden; text-decoration: none; color: inherit;
-    display: flex; flex-direction: column;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+  .tools-hero-top { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .tools-hero-text { flex: 1; min-width: 260px; }
+  .tools-hero-title { font-family: 'Sora', sans-serif; font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 800; line-height: 1.15; }
+  .tools-hero-title span { background: linear-gradient(90deg, var(--accent3), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tools-hero-desc { font-size: 0.92rem; color: var(--muted); max-width: 580px; line-height: 1.7; margin-top: 0.7rem; }
+  .tools-search-wrap { position: relative; width: 320px; max-width: 100%; flex-shrink: 0; }
+  .tools-search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .tools-search-input {
+    width: 100%; padding: 0.75rem 1.1rem 0.75rem 2.7rem; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--border); color: var(--text);
+    font-family: 'Inter', sans-serif; font-size: 0.88rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .blog-card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
-  .blog-card-top { padding: 1.8rem 1.8rem 0; }
-  .blog-card-category { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-  .blog-card-title { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 0.7rem; }
-  .blog-card-excerpt { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-  .blog-card-bottom { padding: 1.2rem 1.8rem 1.5rem; margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); margin-top: 1.2rem; }
-  .blog-card-meta { font-size: 0.72rem; color: var(--muted); font-family: 'DM Mono', monospace; }
-  .blog-card-arrow { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.85rem; transition: all 0.2s; }
-  .blog-card:hover .blog-card-arrow { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .blog-tag { display: inline-block; font-size: 0.68rem; font-family: 'DM Mono', monospace; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); margin-right: 0.35rem; margin-top: 0.7rem; }
+  .tools-search-input::placeholder { color: var(--muted); }
+  .tools-search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,106,247,0.15); }
 
-  /* COMING SOON CARD */
-  .coming-soon-card {
-    background: var(--card); border: 1px dashed rgba(124,106,247,0.3); border-radius: 14px;
-    padding: 2.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; gap: 0.8rem; min-height: 220px;
+  /* TOOLS SECTION */
+  .tools-section { position: relative; z-index: 1; padding: 0 5% 100px; }
+  .tools-inner { max-width: 1200px; margin: 0 auto; }
+  .tools-category-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent3); margin: 1.4rem 0 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .tools-category-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .tool-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.4rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
   }
-  .coming-soon-icon { font-size: 2rem; }
-  .coming-soon-text { font-size: 0.85rem; color: var(--muted); }
+  .tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent3)); transform: scaleX(0); transition: transform 0.3s; }
+  .tool-card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+  .tool-card:hover::before { transform: scaleX(1); }
+  .tool-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tool-info { flex: 1; }
+  .tool-name { font-family: 'Sora', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+  .tool-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.6rem; }
+  .tool-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .tool-tag { font-size: 0.62rem; font-family: 'DM Mono', monospace; padding: 0.15rem 0.55rem; border-radius: 4px; background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); }
+  .tool-tag.green { background: rgba(106,247,200,0.08); border-color: rgba(106,247,200,0.2); color: var(--accent3); }
+  .tool-tag.orange { background: rgba(247,162,106,0.08); border-color: rgba(247,162,106,0.2); color: var(--accent2); }
+  .tool-free-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; font-family: 'DM Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 100px; background: rgba(106,247,200,0.12); border: 1px solid rgba(106,247,200,0.25); color: var(--accent3); }
 
-  /* NO RESULTS STATE */
-  .no-results {
-    grid-column: 1/-1; text-align: center; padding: 3rem 1rem; color: var(--muted);
-    font-family: 'DM Mono', monospace; font-size: 0.85rem;
+  /* COMING SOON */
+  .coming-soon-wrap { text-align: center; padding: 5rem 2rem; border: 1px dashed rgba(124,106,247,0.3); border-radius: 16px; background: var(--card); }
+  .coming-soon-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .coming-soon-title { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 0.8rem; }
+  .coming-soon-desc { font-size: 0.92rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
+
+  .tools-no-results { display: none; text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.9rem; }
+  .tools-no-results.show { display: block; }
+
+  /* FOOTER (fixed to viewport) */
+  .footer-slim {
+    background: var(--surface); border-top: 1px solid var(--border); padding: 0.6rem 5%;
+    position: fixed; left: 0; right: 0; bottom: 0; width: 100%; z-index: 90;
   }
-
-  /* FOOTER */
-  .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
-  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-slim-inner p { font-size: 0.78rem; color: var(--muted); }
-  .social-row { display: flex; gap: 0.75rem; }
-  .social-btn { width: 34px; height: 34px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+  body { padding-bottom: 50px; }
+  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+  .footer-slim-inner p { font-size: 0.72rem; color: var(--muted); }
+  .social-row { display: flex; gap: 0.6rem; }
+  .social-btn { width: 26px; height: 26px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.72rem; transition: all 0.2s; }
   .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
 
   @media (max-width: 750px) {
-    .blog-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
   }
+  @media (max-width: 480px) {
+    .footer-slim-inner { justify-content: center; text-align: center; }
+    body { padding-bottom: 84px; }
+  }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .blog-hero { animation: fadeUp 0.6s ease both; }
+  .tools-hero { animation: fadeUp 0.6s ease both; }
 </style>
 </head>
 <body>
@@ -143,8 +154,8 @@
     <li><a href="../index.html#about">About</a></li>
     <li><a href="../index.html#experience">Experience</a></li>
     <li><a href="../index.html#skills">Skills</a></li>
-    <li><a href="index.html" class="active">Blog</a></li>
-    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
+    <li><a href="index.html" class="active">Tools</a></li>
     <li><a href="../index.html#contact" class="cta-btn">Contact</a></li>
   </ul>
   <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
@@ -156,92 +167,85 @@
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
   <a href="../index.html">Home</a>
   <a href="../index.html#about">About</a>
-  <a href="../index.html#experience">Experience</a>
-  <a href="../tools/index.html">Tools</a>
+  <a href="../blog/index.html">Blog</a>
   <a href="../index.html#contact">Contact</a>
 </div>
 
 <!-- HERO -->
-<div class="blog-hero">
-  <div class="section-label">// beyond rankings</div>
-  <h1 class="blog-hero-title">Beyond <span>Rankings</span></h1>
-  <p class="blog-hero-desc">Articles on SEO strategy, AI search, content planning, and organic growth — published regularly to help you think deeper and execute smarter.</p>
-  <div class="filter-tabs">
-    <button class="filter-tab active" data-filter="all">All</button>
-    <button class="filter-tab" data-filter="technical-seo">Technical SEO</button>
-    <button class="filter-tab" data-filter="ai-automation">AI & Automation</button>
-    <button class="filter-tab" data-filter="content-strategy">Content Strategy</button>
-    <button class="filter-tab" data-filter="aeo-geo">AEO & GEO</button>
-    <button class="filter-tab" data-filter="tools">Tools</button>
+<div class="tools-hero">
+  <div class="tools-hero-top">
+    <div class="tools-hero-text">
+      <div class="section-label">// my toolkit</div>
+      <h1 class="tools-hero-title">Tools That <span>Power My SEO</span></h1>
+    </div>
+    <div class="tools-search-wrap">
+      <svg class="tools-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="toolSearch" class="tools-search-input" placeholder="Search tools by name, tag, or use case…" autocomplete="off">
+    </div>
   </div>
+  <p class="tools-hero-desc">A curated collection of tools I use daily for technical SEO, AI-driven research, content strategy, and automation — many of them free.</p>
 </div>
 
-<!-- BLOG GRID -->
-<div class="blog-section">
-  <div class="blog-grid" style="max-width:1200px;margin:0 auto" id="blogGrid">
-
-    <!-- Post: Robots.txt Explained -->
-    <a href="robots-txt-explained-common-mistakes.html" class="blog-card" data-category="technical-seo">
-      <div class="blog-card-top">
-        <div class="blog-card-category">Technical SEO</div>
-        <div class="blog-card-title">Robots.txt Explained: What It Does and Common Mistakes</div>
-        <div class="blog-card-excerpt">What robots.txt controls, how it differs from noindex, and the common mistakes — like accidentally blocking your whole site — that quietly hurt SEO.</div>
-        <span class="blog-tag">Robots.txt</span><span class="blog-tag">Crawling & Indexing</span>
-      </div>
-      <div class="blog-card-bottom">
-        <span class="blog-card-meta">July 2026 · 6 min read</span>
-        <div class="blog-card-arrow">→</div>
-      </div>
-    </a>
-
-    <!-- Post: What is a Sitemap -->
-    <a href="what-is-a-sitemap-and-why-you-need-one.html" class="blog-card" data-category="technical-seo">
-      <div class="blog-card-top">
-        <div class="blog-card-category">Technical SEO</div>
-        <div class="blog-card-title">What is a Sitemap and Why Does Your Website Need One?</div>
-        <div class="blog-card-excerpt">A beginner-friendly guide to XML sitemaps — what they are, why search engines rely on them, and how to create and submit one.</div>
-        <span class="blog-tag">Sitemap</span><span class="blog-tag">Google Search Console</span>
-      </div>
-      <div class="blog-card-bottom">
-        <span class="blog-card-meta">July 2026 · 5 min read</span>
-        <div class="blog-card-arrow">→</div>
-      </div>
-    </a>
-
-    <!-- Post: Internal Linking 101 -->
-    <a href="internal-linking-101-beginners-guide.html" class="blog-card" data-category="content-strategy">
-      <div class="blog-card-top">
-        <div class="blog-card-category">Content Strategy</div>
-        <div class="blog-card-title">Internal Linking 101: A Simple Guide for Beginners</div>
-        <div class="blog-card-excerpt">What internal links actually are, why they matter for SEO, and a simple 5-step process to start doing it right — no tools required.</div>
-        <span class="blog-tag">Internal Linking</span><span class="blog-tag">On-Page SEO</span>
-      </div>
-      <div class="blog-card-bottom">
-        <span class="blog-card-meta">July 2026 · 5 min read</span>
-        <div class="blog-card-arrow">→</div>
-      </div>
-    </a>
-
-    <!-- Post: AEO Explained -->
-    <a href="what-is-aeo-explained-simply.html" class="blog-card" data-category="aeo-geo">
-      <div class="blog-card-top">
-        <div class="blog-card-category">AEO & GEO</div>
-        <div class="blog-card-title">What is AEO (Answer Engine Optimization)? Explained Simply</div>
-        <div class="blog-card-excerpt">A beginner-friendly breakdown of what Answer Engine Optimization means, how it differs from traditional SEO, and why it matters right now.</div>
-        <span class="blog-tag">AEO</span><span class="blog-tag">GEO</span><span class="blog-tag">AI Search</span>
-      </div>
-      <div class="blog-card-bottom">
-        <span class="blog-card-meta">July 2026 · 6 min read</span>
-        <div class="blog-card-arrow">→</div>
-      </div>
-    </a>
-
-    <div class="coming-soon-card" data-category="all" style="min-height:260px;">
-      <div class="coming-soon-icon">✍️</div>
-      <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text);">More Posts Coming Soon</div>
-      <div class="coming-soon-text" style="max-width:480px;">Publishing new insights every week on SEO, AI search, and growth automation.</div>
+<!-- TOOLS -->
+<div class="tools-section">
+  <div class="tools-inner">
+    <div class="tools-category-title">Built by Me</div>
+    <div class="tools-grid">
+<a href="meta-details-extractor.html" class="tool-card">
+  <div class="tool-icon">🔍</div>
+  <div class="tool-info">
+    <div class="tool-name">Meta Details Extractor</div>
+    <div class="tool-desc">Extract H1, meta title, meta description & meta keywords from up to 200 URLs at once — with an on-page health score.</div>
+    <div class="tool-tags">
+      <span class="tool-tag">On-Page SEO</span>
+      <span class="tool-tag green">Bulk Audit</span>
+      <span class="tool-tag orange">Python + Flask</span>
     </div>
+  </div>
+  <span class="tool-free-badge">Free</span>
+</a>
+      <a href="header-tags-checker.html" class="tool-card">
+        <div class="tool-icon">🏷️</div>
+        <div class="tool-info">
+          <div class="tool-name">Header Tags Extractor &amp; Checker</div>
+          <div class="tool-desc">Pull all H1–H6 tags from up to 200 URLs in order, view the heading structure as a tree, and flag missing H1s, multiple H1s &amp; skipped levels.</div>
+          <div class="tool-tags">
+            <span class="tool-tag">On-Page SEO</span>
+            <span class="tool-tag green">Structure Check</span>
+            <span class="tool-tag orange">Python + Flask</span>
+          </div>
+        </div>
+        <span class="tool-free-badge">Free</span>
+      </a>
+      <a href="http-status-checker.html" class="tool-card">
+  <div class="tool-icon">🚦</div>
+  <div class="tool-info">
+    <div class="tool-name">HTTP Status Code Checker</div>
+    <div class="tool-desc">Paste a batch of URLs to check status codes, redirect chains, and final destinations — with a health score and CSV/Excel export.</div>
+    <div class="tool-tags">
+      <span class="tool-tag">Technical SEO</span>
+      <span class="tool-tag green">Site Audit</span>
+      <span class="tool-tag orange">Python + Flask</span>
+    </div>
+  </div>
+  <span class="tool-free-badge">Free</span>
+</a>
+<a href="broken-link-checker.html" class="tool-card">
+  <div class="tool-icon">🔗</div>
+  <div class="tool-info">
+    <div class="tool-name">Broken Link Checker</div>
+    <div class="tool-desc">Crawl a site or paste page URLs to find broken internal and external links, redirects, and dead pages — with a health score.</div>
+    <div class="tool-tags">
+      <span class="tool-tag">Technical SEO</span>
+      <span class="tool-tag green">Site Audit</span>
+      <span class="tool-tag orange">Python + Flask</span>
+    </div>
+  </div>
+  <span class="tool-free-badge">Free</span>
+</a>
 
+    </div>
+    <p class="tools-no-results" id="toolsNoResults">No tools match your search. Try a different keyword.</p>
   </div>
 </div>
 
@@ -251,56 +255,37 @@
     <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
     <div class="social-row">
       <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
-      <a href="mailto:mahalakshmi.tnj@gmail.com" class="social-btn" title="Email">✉</a>
+      <a href="mailto:mahalakshmi.digitalpro@gmail.com" class="social-btn" title="Email">✉</a>
+      <a href="https://www.instagram.com/mahapravin26/" target="_blank" class="social-btn" title="Instagram">IG</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Filter tabs — actually filters the grid now
-  const tabs = document.querySelectorAll('.filter-tab');
-  const grid = document.getElementById('blogGrid');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const filter = tab.dataset.filter;
-      const cards = grid.querySelectorAll('.blog-card, .coming-soon-card');
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        const matches = filter === 'all' || category === filter || category === 'all';
-        card.style.display = matches ? '' : 'none';
-        if (matches && card.classList.contains('blog-card')) visibleCount++;
-      });
-
-      // Remove any previous "no results" message
-      const existingMsg = grid.querySelector('.no-results');
-      if (existingMsg) existingMsg.remove();
-
-      // Show a message if a specific filter has no matching posts yet
-      if (filter !== 'all' && visibleCount === 0) {
-        const msg = document.createElement('div');
-        msg.className = 'no-results';
-        msg.textContent = 'No posts in this category yet — check back soon!';
-        grid.appendChild(msg);
-      }
-    });
-  });
-
-  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.blog-card, .coming-soon-card').forEach(el => {
+  document.querySelectorAll('.tool-card').forEach(el => {
     el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s';
     observer.observe(el);
+  });
+
+  // Tool search — live filter by name, description, and tags
+  const toolSearchInput = document.getElementById('toolSearch');
+  const toolCards = document.querySelectorAll('.tool-card');
+  const toolsNoResults = document.getElementById('toolsNoResults');
+  toolSearchInput.addEventListener('input', () => {
+    const query = toolSearchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+    toolCards.forEach(card => {
+      const matches = card.textContent.toLowerCase().includes(query);
+      card.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+    toolsNoResults.classList.toggle('show', visibleCount === 0 && query !== '');
   });
 </script>
 </body>
