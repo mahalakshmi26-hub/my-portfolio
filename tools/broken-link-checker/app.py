@@ -437,10 +437,18 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .brand-text { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; }
   .sidebar-section { display: flex; flex-direction: column; gap: 0.3rem; }
   .sidebar-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-  .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted); text-decoration: none; transition: all 0.15s; }
-  .sidebar-link:hover, .sidebar-link.active { background: rgba(124,106,247,0.12); color: var(--text); }
+  .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+  .sidebar-link:hover { background: rgba(124,106,247,0.12); color: var(--text); }
+  .sidebar-link.active { background: var(--accent); color: #fff; font-weight: 700; }
   .sidebar-limits { margin-top: auto; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
   .sidebar-limits strong { color: var(--text); }
+  .sidebar-footer { padding-top: 1rem; border-top: 1px solid var(--border); }
+  .sidebar-footer p { font-size: 0.7rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.7rem; }
+  .credit-name { color: var(--accent3); font-weight: 700; text-decoration: none; }
+  .credit-name:hover { text-decoration: underline; }
+  .sidebar-social { display: flex; gap: 0.5rem; }
+  .sidebar-social a { width: 28px; height: 28px; border-radius: 6px; background: rgba(106,247,200,0.08); border: 1px solid rgba(106,247,200,0.35); display: flex; align-items: center; justify-content: center; color: var(--accent3); text-decoration: none; font-size: 0.68rem; font-family: 'DM Mono', monospace; transition: all 0.2s; }
+  .sidebar-social a:hover { background: rgba(106,247,200,0.2); border-color: var(--accent3); }
 
   /* MAIN */
   .main { flex: 1; padding: 2.2rem 3rem 4rem; max-width: 1180px; }
@@ -525,7 +533,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <div class="layout">
 
   <aside class="sidebar">
-    <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="brand">
+    <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="brand">
       <span class="brand-mark">M</span>
       <span class="brand-text">SEO Tools</span>
     </a>
@@ -535,11 +543,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-label">Navigate</div>
-      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="sidebar-link">← All Tools</a>
-      <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="sidebar-link">Portfolio Home</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="sidebar-link">🧰 All My Tools</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="sidebar-link">👩‍💻 Portfolio</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/blog/index.html" class="sidebar-link">📝 Blog Posts</a>
     </div>
     <div class="sidebar-limits">
       Scans up to <strong>30 pages</strong> and checks up to <strong>250 links</strong> per run, so results stay fast and free.
+    </div>
+    <div class="sidebar-footer">
+      <p>Built by <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="credit-name">Mahalakshmi Marimuthu</a><br>Digital Marketing Strategist &amp; AI-Powered SEO Expert</p>
+      <div class="sidebar-social">
+        <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" title="LinkedIn">in</a>
+        <a href="https://www.instagram.com/mahapravin26/" target="_blank" title="Instagram">IG</a>
+        <a href="mailto:mahalakshmi.digitalpro@gmail.com" title="Email">✉</a>
+      </div>
     </div>
   </aside>
 
