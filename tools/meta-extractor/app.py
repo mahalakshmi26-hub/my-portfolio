@@ -253,12 +253,15 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
   .brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 900; font-size: 1rem; color: #fff; flex-shrink: 0; }
   .brand-text { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; }
-  .sidebar-section { display: flex; flex-direction: column; gap: 0.3rem; }
-  .sidebar-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-  .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted); text-decoration: none; transition: all 0.15s; }
-  .sidebar-link:hover, .sidebar-link.active { background: rgba(124,106,247,0.12); color: var(--text); }
-  .sidebar-limits { margin-top: auto; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
-  .sidebar-limits strong { color: var(--text); }
+  .sidebar-nav { display: flex; flex-direction: column; gap: 0.2rem; }
+  .nav-item { display: flex; align-items: center; gap: 0.55rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+  .nav-item.active { background: rgba(124,106,247,0.14); color: var(--text); border: 1px solid rgba(124,106,247,0.3); }
+  .nav-item:hover { color: var(--text); }
+  .sidebar-foot { margin-top: auto; font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
+  .sidebar-foot a { color: var(--accent3); text-decoration: none; }
+  .sidebar-social { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+  .social-btn { width: 30px; height: 30px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.7rem; font-family: 'DM Mono', monospace; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
 
   /* MAIN */
   .main { flex: 1; padding: 2.2rem 3rem 4rem; max-width: 1180px; }
@@ -343,17 +346,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <span class="brand-mark">M</span>
       <span class="brand-text">SEO Tools</span>
     </a>
-    <div class="sidebar-section">
-      <div class="sidebar-label">Tool</div>
-      <a href="#" class="sidebar-link active">🔍 Meta Details Extractor</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">Navigate</div>
-      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="sidebar-link">← All Tools</a>
-      <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="sidebar-link">Portfolio Home</a>
-    </div>
-    <div class="sidebar-limits">
-      Extracts on-page SEO data from up to <strong>{{ max_urls }} URLs</strong> per run, fetched in parallel so results stay fast.
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">🔍&nbsp; Meta Details Extractor</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="nav-item">🧰&nbsp; All My Tools</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="nav-item">👩‍💻&nbsp; Portfolio</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/blog/index.html" class="nav-item">📝&nbsp; Blog Posts</a>
+    </nav>
+    <div class="sidebar-foot">
+      Built by <a href="https://mahalakshmi26-hub.github.io/my-portfolio" target="_blank">Mahalakshmi Marimuthu</a><br>
+      Digital Marketing Strategist &amp; AI-Powered SEO Expert
+      <div class="sidebar-social">
+        <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
+        <a href="https://www.instagram.com/mahapravin26/" target="_blank" class="social-btn" title="Instagram">IG</a>
+        <a href="mailto:mahalakshmi.digitalpro@gmail.com" class="social-btn" title="Email">✉</a>
+      </div>
     </div>
   </aside>
 
@@ -367,7 +373,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="scan-card">
       <label class="scan-hint" for="urlsInput" style="display:block;margin-bottom:0.5rem;">Paste URLs (one per line, or comma-separated)</label>
       <textarea id="urlsInput" class="scan-input" placeholder="https://example.com&#10;https://example.com/page-2&#10;example.com/page-3"></textarea>
-      <div class="scan-hint">https:// is added automatically if you skip it — duplicates are removed.</div>
+      <div class="scan-hint">https:// is added automatically if you skip it — duplicates are removed. Limit: {{ max_urls }} URLs per run.</div>
 
       <div class="scan-actions">
         <button class="btn-primary" id="extractBtn" onclick="startExtract()">Extract Details</button>
