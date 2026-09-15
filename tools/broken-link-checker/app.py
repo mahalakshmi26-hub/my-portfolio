@@ -437,9 +437,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .brand-text { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; }
   .sidebar-section { display: flex; flex-direction: column; gap: 0.3rem; }
   .sidebar-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-  .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+  .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; border: 1px solid transparent; font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.15s; }
   .sidebar-link:hover { background: rgba(124,106,247,0.12); color: var(--text); }
-  .sidebar-link.active { background: var(--accent); color: #fff; font-weight: 700; }
+  .sidebar-link.active { background: rgba(124,106,247,0.14); border: 1px solid rgba(124,106,247,0.4); color: var(--accent); font-weight: 700; }
   .sidebar-limits { margin-top: auto; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
   .sidebar-limits strong { color: var(--text); }
   .sidebar-footer { padding-top: 1rem; border-top: 1px solid var(--border); }
