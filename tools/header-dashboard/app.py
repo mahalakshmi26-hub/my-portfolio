@@ -202,13 +202,21 @@ PAGE = r"""
   .shell{display:flex;min-height:100vh}
   .sidebar{width:230px;background:var(--surface);border-right:1px solid var(--border);padding:1.4rem 1rem;position:fixed;top:0;bottom:0;display:flex;flex-direction:column}
   .main{flex:1;margin-left:230px;padding:1.6rem 2rem 3rem;max-width:1400px}
-  .logo{display:flex;align-items:center;gap:.6rem;font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;margin-bottom:2rem}
-  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
-  .nav-item{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;border-radius:8px;color:var(--muted);font-size:.85rem;font-weight:500;margin-bottom:.2rem}
-  .nav-item.active{background:rgba(124,106,247,.14);color:var(--text);border:1px solid rgba(124,106,247,.3)}
-  .nav-item:hover{color:var(--text)}
-  .sidebar-foot{margin-top:auto;font-size:.68rem;color:var(--muted);line-height:1.5}
-  .sidebar-foot a{color:var(--mint)}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;margin-bottom:2rem;color:var(--text);text-decoration:none}
+  .brand:hover .brand-text{color:var(--accent)}
+  .brand-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+  .sidebar-section{margin-bottom:1.4rem}
+  .sidebar-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;padding-left:.3rem}
+  .sidebar-link{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;border-radius:8px;color:var(--muted);font-size:.85rem;font-weight:500;margin-bottom:.2rem;border:1px solid transparent;text-decoration:none}
+  .sidebar-link.active{background:rgba(124,106,247,.14);border:1px solid rgba(124,106,247,.4);color:var(--accent);font-weight:700}
+  .sidebar-link:hover{color:var(--text)}
+  .sidebar-link.active:hover{color:var(--accent)}
+  .sidebar-footer{margin-top:auto;font-size:.68rem;color:var(--muted);line-height:1.5}
+  .credit-name{color:var(--mint);font-weight:700;text-decoration:none}
+  .credit-name:hover{text-decoration:underline}
+  .sidebar-social{display:flex;gap:.5rem;margin-top:.7rem}
+  .sidebar-social a{width:28px;height:28px;border-radius:6px;background:rgba(106,247,200,.08);border:1px solid rgba(106,247,200,.35);color:var(--mint);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;text-decoration:none;transition:background .2s}
+  .sidebar-social a:hover{background:rgba(106,247,200,.18)}
 
   .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;flex-wrap:wrap;gap:.8rem}
   .topbar h1{font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700}
@@ -279,13 +287,27 @@ PAGE = r"""
 <div class="shell">
 
   <aside class="sidebar">
-    <div class="logo"><div class="logo-mark">M</div>SEO Tools</div>
-    <div class="nav-item active">📊&nbsp; Header Tag Audit</div>
-    <a class="nav-item" href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/" target="_blank">🧰&nbsp; All My Tools</a>
-    <a class="nav-item" href="https://mahalakshmi26-hub.github.io/my-portfolio/" target="_blank">👩‍💻&nbsp; Portfolio</a>
-    <div class="sidebar-foot">
-      Built by <a href="https://mahalakshmi26-hub.github.io/my-portfolio/" target="_blank">Mahalakshmi Marimuthu</a><br>
-      Digital Marketing Strategist &amp; AI-Powered SEO Expert
+    <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="brand">
+      <span class="brand-mark">M</span>
+      <span class="brand-text">SEO Tools</span>
+    </a>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Tool</div>
+      <a href="#" class="sidebar-link active">📊&nbsp; Header Tag Audit</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navigate</div>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/tools/index.html" class="sidebar-link">🧰&nbsp; All My Tools</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="sidebar-link">👩‍💻&nbsp; Portfolio</a>
+      <a href="https://mahalakshmi26-hub.github.io/my-portfolio/blog/index.html" class="sidebar-link">📝&nbsp; Blog Posts</a>
+    </div>
+    <div class="sidebar-footer">
+      <p>Built by <a href="https://mahalakshmi26-hub.github.io/my-portfolio" class="credit-name">Mahalakshmi Marimuthu</a><br>Digital Marketing Strategist &amp; AI-Powered SEO Expert</p>
+      <div class="sidebar-social">
+        <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" title="LinkedIn">in</a>
+        <a href="https://www.instagram.com/mahapravin26/" target="_blank" title="Instagram">IG</a>
+        <a href="mailto:mahalakshmi.digitalpro@gmail.com" title="Email">✉</a>
+      </div>
     </div>
   </aside>
 
