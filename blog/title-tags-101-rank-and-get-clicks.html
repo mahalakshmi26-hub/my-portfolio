@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<title>Title Tags 101: How to Write Titles That Rank and Get Clicks | Mahalakshmi Marimuthu</title>
+<meta name="description" content="A beginner-friendly guide to writing title tags that balance SEO best practices with real click-through appeal.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a26;
+    --accent: #7c6af7; --accent2: #f7a26a; --accent3: #6af7c8;
+    --text: #e8e8f0; --muted: #8888a8; --border: rgba(124,106,247,0.18);
+    --card: rgba(18,18,28,0.85);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; font-size: 16px; line-height: 1.7; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.35;
+  }
+  .bg-glow {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 20%, rgba(124,106,247,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 85% 75%, rgba(247,162,106,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(106,247,200,0.05) 0%, transparent 70%);
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(10,10,15,0.75); border-bottom: 1px solid var(--border);
+  }
+  .nav-logo-mark {
+    width: 28px; height: 28px; border-radius: 7px; background: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-size: 0.95rem; font-weight: 900;
+    color: #fff !important; margin-right: 0.55rem; flex-shrink: 0; line-height: 1;
+    -webkit-text-fill-color: #fff !important;
+  }
+  .nav-logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: center; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links .cta-btn { background: var(--accent); color: #fff; padding: 0.42rem 1.1rem; border-radius: 4px; font-size: 0.78rem; }
+  .nav-links .cta-btn::after { display: none; }
+  .nav-links .cta-btn:hover { background: #6a58e8; color: #fff; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 700; transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+  .article-hero { padding: 140px 5% 40px; position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+  .breadcrumb { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .article-category { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
+  .article-title { font-family: 'Sora', sans-serif; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; line-height: 1.18; margin-bottom: 1.2rem; }
+  .article-title span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .article-meta-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--muted); font-family: 'DM Mono', monospace; padding-bottom: 1.8rem; border-bottom: 1px solid var(--border); }
+  .author-chip { display: flex; align-items: center; gap: 0.5rem; }
+  .author-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 900; font-size: 0.75rem; color: #fff; }
+  .article-body { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 2.5rem 5% 3rem; }
+  .article-body p { font-size: 1.02rem; color: var(--text); margin-bottom: 1.4rem; line-height: 1.85; }
+  .article-body p.lede { font-size: 1.15rem; color: var(--muted); }
+  .article-body h2 { font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700; margin: 2.6rem 0 1rem; color: var(--text); }
+  .article-body h3 { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; margin: 1.8rem 0 0.8rem; color: var(--text); }
+  .article-body ul, .article-body ol { margin: 0 0 1.4rem 1.3rem; color: var(--text); }
+  .article-body li { margin-bottom: 0.6rem; line-height: 1.75; padding-left: 0.3rem; }
+  .article-body strong { color: var(--accent3); font-weight: 600; }
+  .article-body code { font-family: 'DM Mono', monospace; font-size: 0.88rem; background: rgba(124,106,247,0.1); padding: 0.15rem 0.45rem; border-radius: 4px; color: var(--accent3); }
+  .callout { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 1.3rem 1.5rem; margin: 1.8rem 0; font-size: 0.95rem; color: var(--muted); }
+  .callout strong { color: var(--text); }
+  .callout.warning { border-left-color: var(--accent2); }
+  .example-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1rem 0 1.4rem; }
+  .example-box .label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .example-box.bad .label { color: var(--accent2); }
+  .example-box.good .label { color: var(--accent3); }
+  .example-box .title-preview { font-family: 'Sora', sans-serif; font-size: 0.95rem; color: var(--text); }
+  .comparison-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.8rem; font-size: 0.9rem; }
+  .comparison-table th { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); }
+  .comparison-table td { padding: 0.8rem 0.9rem; border-bottom: 1px solid rgba(124,106,247,0.08); color: var(--text); vertical-align: top; }
+  .comparison-table tr:hover td { background: rgba(124,106,247,0.04); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; padding-top: 1.8rem; border-top: 1px solid var(--border); }
+  .blog-tag { display: inline-block; font-size: 0.7rem; font-family: 'DM Mono', monospace; padding: 0.3rem 0.7rem; border-radius: 4px; background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); }
+  .share-cta { max-width: 780px; margin: 1rem auto 4rem; padding: 0 5%; }
+  .share-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; text-align: center; }
+  .share-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+  .share-box a.cta-btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 0.7rem 1.6rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; font-family: 'Sora', sans-serif; transition: background 0.2s; }
+  .share-box a.cta-btn:hover { background: #6a58e8; }
+  .footer-slim { background: var(--surface); border-top: 1px solid var(--border); padding: 1.4rem 5%; position: relative; z-index: 1; }
+  .footer-slim-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-slim-inner p { font-size: 0.78rem; color: var(--muted); }
+  .social-row { display: flex; gap: 0.75rem; }
+  .social-btn { width: 34px; height: 34px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+  .social-btn:hover { background: rgba(124,106,247,0.15); border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 750px) { .nav-links { display: none; } .hamburger { display: flex; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .article-hero { animation: fadeUp 0.6s ease both; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-mark">M</span>Mahalakshmi <span>&nbsp;·&nbsp;</span> Marimuthu</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../index.html#contact" class="cta-btn">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#experience">Experience</a>
+  <a href="../tools/index.html">Tools</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<div class="article-hero">
+  <div class="breadcrumb"><a href="index.html">Beyond Rankings</a> / Content Strategy</div>
+  <div class="article-category">// content strategy</div>
+  <h1 class="article-title">Title Tags 101: How to Write Titles That <span>Rank and Get Clicks</span></h1>
+  <div class="article-meta-row">
+    <div class="author-chip">
+      <div class="author-avatar">M</div>
+      <span>Mahalakshmi Marimuthu</span>
+    </div>
+    <span>·</span><span>5 min read</span><span>·</span><span>July 2026</span>
+  </div>
+</div>
+
+<div class="article-body">
+  <p class="lede">Your title tag does two jobs at once: it tells search engines what your page is about, and it convinces a real person scrolling through results to actually click it. Most beginners only optimize for the first job. Here's how to nail both.</p>
+
+  <h2>What is a Title Tag?</h2>
+  <p>The <strong>title tag</strong> is the clickable headline that appears in search results and browser tabs. It's set in your page's HTML like this:</p>
+  <p><code>&lt;title&gt;Your Page Title Here&lt;/title&gt;</code></p>
+  <p>It's one of the first things both Google and a human see about your page — which is exactly why it deserves more thought than it usually gets.</p>
+
+  <h2>The Two Jobs a Title Tag Has to Do</h2>
+  <ul>
+    <li><strong>Relevance for search engines:</strong> including the right keyword helps Google understand what the page is about and match it to relevant searches.</li>
+    <li><strong>Click-through appeal for humans:</strong> ranking well doesn't matter if nobody clicks. The title needs to feel worth clicking compared to the other 9 results on the page.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Simple way to think about it:</strong> the keyword gets you the ranking opportunity. The wording around it gets you the click.
+  </div>
+
+  <h2>Basic Rules to Follow</h2>
+  <h3>1. Keep it under ~60 characters</h3>
+  <p>Google typically truncates titles beyond this length in search results, cutting off with "..." Aim to fit your full message before that point.</p>
+
+  <h3>2. Put the primary keyword near the front</h3>
+  <p>Search engines tend to give slightly more weight to words that appear earlier in the title, and users scanning results also read left to right first.</p>
+
+  <h3>3. Make every title unique</h3>
+  <p>Duplicate title tags across multiple pages confuse both search engines and users about which page is which. Every page should have its own distinct title.</p>
+
+  <h3>4. Avoid keyword stuffing</h3>
+  <div class="example-box bad">
+    <div class="label">Weak</div>
+    <div class="title-preview">Running Shoes | Buy Running Shoes | Best Running Shoes Online | Cheap Running Shoes</div>
+  </div>
+  <div class="example-box good">
+    <div class="label">Better</div>
+    <div class="title-preview">Best Running Shoes for Beginners (2026 Buying Guide)</div>
+  </div>
+  <p>The second version reads naturally, still contains the keyword, and gives a real reason to click — the promise of a helpful, current guide.</p>
+
+  <h2>Writing Titles People Actually Want to Click</h2>
+  <table class="comparison-table">
+    <tr><th>Technique</th><th>Why It Works</th></tr>
+    <tr><td>Numbers ("7 Ways to...")</td><td>Sets a clear, scannable expectation for the content's structure</td></tr>
+    <tr><td>Specificity ("for Beginners", "for Small Teams")</td><td>Signals the content is relevant to the exact searcher, not generic</td></tr>
+    <tr><td>Freshness ("2026 Guide")</td><td>Suggests up-to-date, currently relevant information</td></tr>
+    <tr><td>Clear benefit or outcome</td><td>Answers "what's in it for me" before the click even happens</td></tr>
+  </table>
+
+  <div class="callout warning">
+    <strong>Avoid clickbait.</strong> A title that promises something the page doesn't deliver increases bounce rate — people leave immediately, which is itself a negative signal to search engines over time.
+  </div>
+
+  <h2>Title Tag vs. H1: Are They the Same?</h2>
+  <p>Not necessarily. The title tag is what shows in search results; the H1 is the main visible heading on the page itself. They can be identical, but they don't have to be — the title tag can be written slightly more for search and click appeal, while the H1 can be written more for on-page clarity.</p>
+
+  <div class="callout">
+    <strong>The takeaway:</strong> a good title tag is short, specific, keyword-forward, and honest about what the page delivers. Write it for the person scanning ten blue links, not just for the algorithm reading your HTML.
+  </div>
+
+  <div class="tag-row">
+    <span class="blog-tag">Title Tags</span>
+    <span class="blog-tag">On-Page SEO</span>
+    <span class="blog-tag">Content Strategy</span>
+    <span class="blog-tag">Beginner Guide</span>
+  </div>
+</div>
+
+<div class="share-cta">
+  <div class="share-box">
+    <p>Want a second opinion on your page titles?</p>
+    <a href="../index.html#contact" class="cta-btn">Get in Touch</a>
+  </div>
+</div>
+
+<footer class="footer-slim">
+  <div class="footer-slim-inner">
+    <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
+      <a href="mailto:mahalakshmi.digitalpro@gmail.com" class="social-btn" title="Email">✉</a>
+      <a href="https://www.instagram.com/mahapravin26/" target="_blank" class="social-btn" title="Instagram">IG</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
