@@ -1,0 +1,6 @@
+Flask
+requests
+certifi
+cryptography
+pyOpenSSL
+gunicorn
