@@ -23,7 +23,7 @@ app = Flask(__name__)
 # --------------------------------------------------------------------------- #
 # Config
 # --------------------------------------------------------------------------- #
-REQUEST_TIMEOUT = 12
+REQUEST_TIMEOUT = 9              # kept short so a slow site stays inside Vercel's function time limit
 MAX_HTML_BYTES = 5 * 1024 * 1024
 MAX_IMAGES = 400               # rows shown per page
 MAX_BG_IMAGES = 30             # CSS background images listed
