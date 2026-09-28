@@ -1,0 +1,9 @@
+{
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- .",
+  "builds": [
+    { "src": "app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "app.py" }
+  ]
+}
