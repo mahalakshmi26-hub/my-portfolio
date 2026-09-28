@@ -1,4 +1,4 @@
-   Flask
-   requests
-   beautifulsoup4
-   gunicorn
+Flask
+requests
+beautifulsoup4
+gunicorn
