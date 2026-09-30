@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6af7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='18' font-weight='900' fill='white'%3EM%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
 <title>SEO Tools | Mahalakshmi Marimuthu</title>
-<meta name="description" content="Free SEO tools and resources curated by Mahalakshmi Marimuthu — for technical SEO, AI search, and automation.">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta content="Free SEO tools and resources curated by Mahalakshmi Marimuthu — for technical SEO, AI search, and automation." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a26;
@@ -86,13 +87,36 @@
 
   /* TOOLS SECTION */
   .tools-section { position: relative; z-index: 1; padding: 0 5% 100px; }
-  .tools-inner { max-width: 1200px; margin: 0 auto; }
-  .tools-category-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent3); margin: 1.4rem 0 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .tools-inner { min-width: 0; }
+  .tools-category-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent3); margin: 0 0 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
   .tools-category-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  /* CATEGORY SIDEBAR LAYOUT */
+  .tools-layout { display: grid; grid-template-columns: 250px 1fr; gap: 2.4rem; align-items: start; max-width: 1200px; margin: 0 auto; }
+  .tools-sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 0.2rem; }
+  .side-heading { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .side-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-radius: 8px; text-decoration: none; color: var(--muted); font-size: 0.8rem; transition: all 0.2s; border: 1px solid transparent; }
+  .side-item:hover { color: var(--text); background: rgba(124,106,247,0.08); }
+  .side-item.active { background: rgba(124,106,247,0.14); border-color: rgba(124,106,247,0.3); color: var(--text); }
+  .side-icon-badge { width: 26px; height: 26px; border-radius: 7px; background: rgba(124,106,247,0.12); border: 1px solid rgba(124,106,247,0.25); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+  .side-label { flex: 1; line-height: 1.25; }
+  .side-count { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent3); flex-shrink: 0; }
+  .tools-category-block { margin-bottom: 2.6rem; scroll-margin-top: 84px; }
+  .cat-icon-badge { width: 34px; height: 34px; border-radius: 9px; background: rgba(124,106,247,0.12); border: 1px solid rgba(124,106,247,0.3); display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .cat-title-text { font-size: 0.92rem; }
+  .tools-category-count { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent3); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 0.2rem; }
+  @media (max-width: 900px) {
+    .tools-layout { grid-template-columns: 1fr; }
+    .tools-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .side-heading { display: none; }
+    .side-item { border: 1px solid var(--border); }
+    .side-label { display: none; }
+  }
+
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
   .tool-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 1.4rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.4rem 1rem; display: flex; flex-direction: column; align-items: center;
+    text-align: center; justify-content: center; gap: 0.6rem; aspect-ratio: 1 / 1;
     text-decoration: none; color: inherit;
     transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     position: relative; overflow: hidden;
@@ -100,15 +124,10 @@
   .tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent3)); transform: scaleX(0); transition: transform 0.3s; }
   .tool-card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
   .tool-card:hover::before { transform: scaleX(1); }
-  .tool-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .tool-info { flex: 1; }
-  .tool-name { font-family: 'Sora', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
-  .tool-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.6rem; }
-  .tool-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .tool-tag { font-size: 0.62rem; font-family: 'DM Mono', monospace; padding: 0.15rem 0.55rem; border-radius: 4px; background: rgba(124,106,247,0.1); border: 1px solid rgba(124,106,247,0.2); color: var(--accent); }
-  .tool-tag.green { background: rgba(106,247,200,0.08); border-color: rgba(106,247,200,0.2); color: var(--accent3); }
-  .tool-tag.orange { background: rgba(247,162,106,0.08); border-color: rgba(247,162,106,0.2); color: var(--accent2); }
-  .tool-free-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; font-family: 'DM Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 100px; background: rgba(106,247,200,0.12); border: 1px solid rgba(106,247,200,0.25); color: var(--accent3); }
+  .tool-icon-wrap { width: 48px; height: 48px; border-radius: 12px; background: rgba(124,106,247,0.12); border: 1px solid rgba(124,106,247,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+  .tool-name { font-family: 'Sora', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+  .free-dot { position: absolute; top: 0.7rem; right: 0.7rem; width: 7px; height: 7px; border-radius: 50%; background: var(--accent3); }
+  .tool-search-meta { display: none; }
 
   /* COMING SOON */
   .coming-soon-wrap { text-align: center; padding: 5rem 2rem; border: 1px dashed rgba(124,106,247,0.3); border-radius: 16px; background: var(--card); }
@@ -147,591 +166,145 @@
 </head>
 <body>
 <div class="bg-glow"></div>
-
 <nav>
-  <a href="../index.html" class="nav-logo"><span class="nav-logo-mark">M</span>Mahalakshmi <span>&nbsp;·&nbsp;</span> Marimuthu</a>
-  <ul class="nav-links">
-    <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#experience">Experience</a></li>
-    <li><a href="../index.html#skills">Skills</a></li>
-    <li><a href="../blog/index.html">Blog</a></li>
-    <li><a href="index.html" class="active">Tools</a></li>
-    <li><a href="../index.html#contact" class="cta-btn">Contact</a></li>
-  </ul>
-  <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
-  <a href="../index.html">Home</a>
-  <a href="../index.html#about">About</a>
-  <a href="../blog/index.html">Blog</a>
-  <a href="../index.html#contact">Contact</a>
+<a class="nav-logo" href="../index.html"><span class="nav-logo-mark">M</span>Mahalakshmi <span> · </span> Marimuthu</a>
+<ul class="nav-links">
+<li><a href="../index.html#about">About</a></li>
+<li><a href="../index.html#experience">Experience</a></li>
+<li><a href="../index.html#skills">Skills</a></li>
+<li><a href="../blog/index.html">Blog</a></li>
+<li><a class="active" href="index.html">Tools</a></li>
+<li><a class="cta-btn" href="../index.html#contact">Contact</a></li>
+</ul>
+<div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+<span></span><span></span><span></span>
 </div>
-
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+<a href="../index.html">Home</a>
+<a href="../index.html#about">About</a>
+<a href="../blog/index.html">Blog</a>
+<a href="../index.html#contact">Contact</a>
+</div>
 <!-- HERO -->
 <div class="tools-hero">
-  <div class="tools-hero-top">
-    <div class="tools-hero-text">
-      <div class="section-label">// my toolkit</div>
-      <h1 class="tools-hero-title">Tools That <span>Power My SEO</span></h1>
-    </div>
-    <div class="tools-search-wrap">
-      <svg class="tools-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="toolSearch" class="tools-search-input" placeholder="Search tools by name, tag, or use case…" autocomplete="off">
-    </div>
-  </div>
-  <p class="tools-hero-desc">A curated collection of tools I use daily for technical SEO, AI-driven research, content strategy, and automation — many of them free.</p>
+<div class="tools-hero-top">
+<div class="tools-hero-text">
+<div class="section-label">// my toolkit</div>
+<h1 class="tools-hero-title">Tools That <span>Power My SEO</span></h1>
 </div>
-
+<div class="tools-search-wrap">
+<svg class="tools-search-icon" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+<input autocomplete="off" class="tools-search-input" id="toolSearch" placeholder="Search tools by name, tag, or use case…" type="text"/>
+</div>
+</div>
+<p class="tools-hero-desc">A curated collection of tools I use daily for technical SEO, AI-driven research, content strategy, and automation — many of them free.</p>
+</div>
 <!-- TOOLS -->
 <div class="tools-section">
-  <div class="tools-inner">
-    <div class="tools-category-title">Built by Me</div>
-    <div class="tools-grid">
-<a href="meta-details-extractor.html" class="tool-card">
-  <div class="tool-icon">🔍</div>
-  <div class="tool-info">
-    <div class="tool-name">Meta Details Extractor</div>
-    <div class="tool-desc">Extract H1, meta title, meta description & meta keywords from up to 200 URLs at once — with an on-page health score.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">Bulk Audit</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="meta-tags-analyzer.html" class="tool-card">
-  <div class="tool-icon">📋</div>
-  <div class="tool-info">
-    <div class="tool-name">Meta Tags Analyzer</div>
-    <div class="tool-desc">Paste a URL to check its meta title, description, keywords, robots, canonical and Open Graph tags — with character-count warnings and a live search-result preview.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">On-Page SEO</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="meta-tag-generator.html" class="tool-card">
-  <div class="tool-icon">✍️</div>
-  <div class="tool-info">
-    <div class="tool-name">Meta Tag Generator</div>
-    <div class="tool-desc">Enter a URL and keyword to get an SEO meta title, description and keywords that fit Google's character and pixel limits, with a live preview and an optional AI rewrite.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">AI-assisted</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="header-tags-checker.html" class="tool-card">
-        <div class="tool-icon">🏷️</div>
-        <div class="tool-info">
-          <div class="tool-name">Header Tags Extractor &amp; Checker</div>
-          <div class="tool-desc">Pull all H1–H6 tags from up to 200 URLs in order, view the heading structure as a tree, and flag missing H1s, multiple H1s &amp; skipped levels.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">On-Page SEO</span>
-            <span class="tool-tag green">Structure Check</span>
-            <span class="tool-tag orange">Python + Flask</span>
-          </div>
-        </div>
-        <span class="tool-free-badge">Free</span>
-      </a>
-      <a href="http-status-checker.html" class="tool-card">
-  <div class="tool-icon">🚦</div>
-  <div class="tool-info">
-    <div class="tool-name">HTTP Status Code Checker</div>
-    <div class="tool-desc">Paste a batch of URLs to check status codes, redirect chains, and final destinations — with a health score and CSV/Excel export.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Site Audit</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="broken-link-checker.html" class="tool-card">
-  <div class="tool-icon">🔗</div>
-  <div class="tool-info">
-    <div class="tool-name">Broken Link Checker</div>
-    <div class="tool-desc">Crawl a site or paste page URLs to find broken internal and external links, redirects, and dead pages — with a health score.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Site Audit</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="keyword-density-checker.html" class="tool-card">
-  <div class="tool-icon">🎯</div>
-  <div class="tool-info">
-    <div class="tool-name">Keyword Density Checker</div>
-    <div class="tool-desc">Check single-keyword and phrase-level density in any text or page — with a healthy 1–3% range check.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">Content Optimization</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="keyword-research-tool.html" class="tool-card">
-  <div class="tool-icon">🔍</div>
-  <div class="tool-info">
-    <div class="tool-name">Keyword Research Tool</div>
-    <div class="tool-desc">Paste a URL and get 20 relevance-ranked keyword ideas — on-page content signals plus real Google Autocomplete suggestions.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Keyword Research</span>
-      <span class="tool-tag green">Content Strategy</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-            <a href="link-analyser.html" class="tool-card">
-        <div class="tool-icon">🔗</div>
-        <div class="tool-info">
-          <div class="tool-name">Link Analyser</div>
-          <div class="tool-desc">Paste any URL and get an instant breakdown of its links — internal vs external, dofollow vs nofollow — with a filterable table and CSV export.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">Technical SEO</span>
-            <span class="tool-tag green">On-Page Audit</span>
-            <span class="tool-tag orange">Python + Flask</span>
-          </div>
-        </div>
-        <span class="tool-free-badge">Free</span>
-      </a>
-      <a href="robots-txt-generator.html" class="tool-card">
-  <div class="tool-icon">🤖</div>
-  <div class="tool-info">
-    <div class="tool-name">Robots.txt Generator</div>
-    <div class="tool-desc">Build a valid robots.txt with presets, per-crawler and AI-bot rules, live preview, URL tester, and one-click copy or download.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Crawl Control</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="domain-age-checker.html" class="tool-card">
-  <div class="tool-icon">📅</div>
-  <div class="tool-info">
-    <div class="tool-name">Domain Age Checker</div>
-    <div class="tool-desc">Check a domain's exact registration date, age, expiry and registrar from the registry (RDAP/WHOIS), with a Wayback Machine cross-check — single or bulk, with CSV export.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Domain Vetting</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="xml-sitemap-generator.html" class="tool-card">
-  <div class="tool-icon">🗺️</div>
-  <div class="tool-info">
-    <div class="tool-name">XML Sitemap Generator</div>
-    <div class="tool-desc">Crawl a website and build a clean sitemap.xml — skips noindex, redirected and broken pages, with priority, changefreq and lastmod controls.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Indexing</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="website-seo-score-checker.html" class="tool-card">
-  <div class="tool-icon">🧪</div>
-  <div class="tool-info">
-    <div class="tool-name">Website SEO Score Checker</div>
-    <div class="tool-desc">Paste a URL and get a weighted 0-100 SEO score across meta tags, content, headings, links and technical setup, with a plain-English fix for every issue.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">On-Page Audit</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-
-      <a href="page-speed-checker.html" class="tool-card">
-  <div class="tool-icon">⚡</div>
-  <div class="tool-info">
-    <div class="tool-name">Page Speed Checker</div>
-    <div class="tool-desc">Tests any URL's mobile & desktop speed side by side — performance score, Core Web Vitals, and prioritized fixes.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Performance</span>
-      <span class="tool-tag green">Core Web Vitals</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="open-graph-checker.html" class="tool-card">
-  <div class="tool-icon">🔗</div>
-  <div class="tool-info">
-    <div class="tool-name">Open Graph Checker</div>
-    <div class="tool-desc">Preview your page across 8 platforms, catch broken og:images and robots.txt crawler blocks, and score your tags out of 100 — with bulk checking for up to 20 URLs.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Social Sharing</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="open-graph-generator.html" class="tool-card">
-  <div class="tool-icon">🏷️</div>
-  <div class="tool-info">
-    <div class="tool-name">Open Graph Generator</div>
-    <div class="tool-desc">Create Open Graph &amp; Twitter Card tags with live previews on 8 platforms, a 1200×630 share image maker, and ready-to-paste code for HTML, Next.js, React and WordPress.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Social Sharing</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      
-      <a href="website-ping-test.html" class="tool-card">
-  <div class="tool-icon">📡</div>
-  <div class="tool-info">
-    <div class="tool-name">Website Ping Test</div>
-    <div class="tool-desc">Checks if any website is up and how fast it responds — response times, packet loss, DNS/IP, SSL expiry and redirects. Bulk mode for 20 URLs.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Uptime</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-
-<a href="schema-markup-generator.html" class="tool-card">
-  <div class="tool-icon">🧩</div>
-  <div class="tool-info">
-    <div class="tool-name">Schema Markup Generator</div>
-    <div class="tool-desc">Create Google-ready JSON-LD by typing into a short form or auto-filling it from a URL — with 2026 rich result labels and Personal Loan, Home Loan &amp; Bank Branch templates.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Structured Data</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="word-count-checker.html" class="tool-card">
-  <div class="tool-icon">📖</div>
-  <div class="tool-info">
-    <div class="tool-name">Word Count Checker</div>
-    <div class="tool-desc">Count words and characters, get your Flesch Reading Ease and grade level, and see exactly which sentences to rewrite — with SEO length and AI-readiness checks.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Content SEO</span>
-      <span class="tool-tag green">Readability</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="serp-snippet-preview.html" class="tool-card">
-  <div class="tool-icon">🔎</div>
-  <div class="tool-info">
-    <div class="tool-name">SERP Snippet Preview</div>
-    <div class="tool-desc">See your title and meta description exactly as Google shows them on desktop and mobile — with pixel meters, keyword bolding, a snippet score and A/B compare.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">CTR</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="xml-sitemap-validator.html" class="tool-card">
-  <div class="tool-icon">🗺️</div>
-  <div class="tool-info">
-    <div class="tool-name">XML Sitemap Validator</div>
-    <div class="tool-desc">Validate your sitemap against Google's rules and bulk-check every URL for status codes, redirects, noindex and canonicals. Then download a clean sitemap.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Indexing</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="canonical-hreflang-checker.html" class="tool-card">
-  <div class="tool-icon">🌐</div>
-  <div class="tool-info">
-    <div class="tool-name">Canonical &amp; Hreflang Checker</div>
-    <div class="tool-desc">Validate canonical tags and hreflang codes, check return links across every language version with a visual matrix, and get corrected tags to copy.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">International SEO</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="image-alt-text-auditor.html" class="tool-card">
-  <div class="tool-icon">🖼️</div>
-  <div class="tool-info">
-    <div class="tool-name">Image Alt Text Auditor</div>
-    <div class="tool-desc">Find every image on a page and grade its alt text: missing, generic, file-name, too long, keyword-stuffed, duplicated, plus image links with no name and extra image SEO hints.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">Accessibility</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="robots-txt-tester.html" class="tool-card">
-  <div class="tool-icon">🤖</div>
-  <div class="tool-info">
-    <div class="tool-name">Robots.txt Tester</div>
-    <div class="tool-desc">Test many URLs against Googlebot, Bingbot and AI crawlers at once — see the exact rule that allows or blocks each one, plus a health score and AI search readiness.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">AI Crawlers</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="utm-link-builder.html" class="tool-card">
-  <div class="tool-icon">🏷️</div>
-  <div class="tool-info">
-    <div class="tool-name">UTM Link Builder</div>
-    <div class="tool-desc">Build clean, GA4-ready campaign links with one-click presets, a GA4 channel predictor, naming checks and QR codes.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Campaign Tracking</span>
-      <span class="tool-tag green">GA4</span>
-      <span class="tool-tag orange">Browser Tool</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="ssl-certificate-checker.html" class="tool-card">
-  <div class="tool-icon">🔒</div>
-  <div class="tool-info">
-    <div class="tool-name">SSL Certificate Checker</div>
-    <div class="tool-desc">Check SSL expiry, issuer, chain and TLS version for up to 10 domains — plus HTTPS SEO checks for 301 redirects, www vs non-www, HSTS and mixed content.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">HTTPS</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="dns-lookup-whois.html" class="tool-card">
-  <div class="tool-icon">🌐</div>
-  <div class="tool-info">
-    <div class="tool-name">DNS Lookup &amp; WHOIS</div>
-    <div class="tool-desc">All DNS records, domain registration (registrar, age, expiry) and SPF / DMARC / DKIM email checks on one screen, with a health score and plain-English fixes.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Email Security</span>
-      <span class="tool-tag orange">Flask + Render</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="wayback-machine-checker.html" class="tool-card">
-  <div class="tool-icon">🕰️</div>
-  <div class="tool-info">
-    <div class="tool-name">Wayback Machine Checker</div>
-    <div class="tool-desc">See any URL's archive history — first seen, status and redirect timeline, long gaps and red flags — with before/after compare links and CSV export.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Domain Research</span>
-      <span class="tool-tag green">Archive History</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="mobile-friendly-test.html" class="tool-card">
-  <div class="tool-icon">📱</div>
-  <div class="tool-info">
-    <div class="tool-name">Mobile Friendly Test</div>
-    <div class="tool-desc">See how Google renders any page on a phone: 10 mobile usability checks, a screenshot, mobile-vs-desktop parity and copy-paste fixes.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Mobile SEO</span>
-      <span class="tool-tag green">Mobile-First Indexing</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="core-web-vitals-checker.html" class="tool-card">
-  <div class="tool-icon">🎯</div>
-  <div class="tool-info">
-    <div class="tool-name">Core Web Vitals (CrUX) Checker</div>
-    <div class="tool-desc">Real-user LCP, INP &amp; CLS for any page or site — mobile vs desktop pass/fail, 6-month trend and fix tips.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Core Web Vitals</span>
-      <span class="tool-tag green">Real-User Data</span>
-      <span class="tool-tag orange">Python + Flask</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="google-index-checker.html" class="tool-card">
-  <div class="tool-icon">🔎</div>
-  <div class="tool-info">
-    <div class="tool-name">Google Index Checker</div>
-    <div class="tool-desc">Check if Google can index up to 20 URLs at once — see the exact reason (noindex, robots.txt, redirect, canonical, 404) and confirm on Google in one click.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Indexing</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="spam-score-checker.html" class="tool-card">
-  <div class="tool-icon">🛡️</div>
-  <div class="tool-info">
-    <div class="tool-name">Spam Score Checker</div>
-    <div class="tool-desc">Scan any website for hidden links, spammy words, cloaking and hacked-code signs from Google's spam policies — get a 0–100 risk score, a backlink verdict and a fix for every flag.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Off-Page SEO</span>
-      <span class="tool-tag green">Link Vetting</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="da-pa-checker.html" class="tool-card">
-  <div class="tool-icon">🏆</div>
-  <div class="tool-info">
-    <div class="tool-name">DA PA Checker</div>
-    <div class="tool-desc">Bulk-check the Domain Authority (DA) of up to 20 websites — with global rank, referring domains, 12-month DA trend and a side-by-side competitor comparison.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Off-Page SEO</span>
-      <span class="tool-tag green">Link Building</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="plagiarism-checker.html" class="tool-card">
-  <div class="tool-icon">📑</div>
-  <div class="tool-info">
-    <div class="tool-name">Plagiarism Checker</div>
-    <div class="tool-desc">Check a page or draft against the web or your chosen URLs — exact copies and close rewrites highlighted, with a uniqueness score and matching sources.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Content SEO</span>
-      <span class="tool-tag green">Duplicate Content</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="indexed-pages-checker.html" class="tool-card">
-  <div class="tool-icon">📚</div>
-  <div class="tool-info">
-    <div class="tool-name">Indexed Pages Checker</div>
-    <div class="tool-desc">See how many pages of any website Google has indexed — for the whole site or a single section — and verify it on Google in one click.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Technical SEO</span>
-      <span class="tool-tag green">Indexing</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="meta-tags-length-checker.html" class="tool-card">
-  <div class="tool-icon">📏</div>
-  <div class="tool-info">
-    <div class="tool-name">Meta Tags Length Checker</div>
-    <div class="tool-desc">Check meta titles and descriptions in characters and pixels with a Google preview, and audit robots, canonical, Open Graph and Twitter tags for any page.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">On-Page SEO</span>
-      <span class="tool-tag green">Meta Tags</span>
-      <span class="tool-tag orange">Flask + Vercel</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="text-to-html-converter.html" class="tool-card">
-  <div class="tool-icon">🧾</div>
-  <div class="tool-info">
-    <div class="tool-name">Text to HTML Converter</div>
-    <div class="tool-desc">Paste from Word, Google Docs or plain text and get clean, semantic HTML, with a heading and link SEO check, live stats, copy and download.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Content</span>
-      <span class="tool-tag green">On-Page SEO</span>
-      <span class="tool-tag orange">GitHub Pages</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="image-compressor.html" class="tool-card">
-  <div class="tool-icon">🗜️</div>
-  <div class="tool-info">
-    <div class="tool-name">Image Compressor</div>
-    <div class="tool-desc">Shrink JPG, PNG and WebP images in your browser — convert to WebP, resize, compare before/after and get SEO-friendly file names. Nothing is uploaded.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Page Speed</span>
-      <span class="tool-tag green">Core Web Vitals</span>
-      <span class="tool-tag orange">GitHub Pages</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-<a href="image-resizer.html" class="tool-card">
-  <div class="tool-icon">🖼️</div>
-  <div class="tool-info">
-    <div class="tool-name">Image Resizer</div>
-    <div class="tool-desc">Resize and compress images in bulk — WebP, JPG or PNG, one-click size presets, before/after savings and ZIP download. Nothing is uploaded.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Image SEO</span>
-      <span class="tool-tag green">Page Speed</span>
-      <span class="tool-tag orange">GitHub Pages</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-      <a href="image-converter.html" class="tool-card">
-  <div class="tool-icon">🔄</div>
-  <div class="tool-info">
-    <div class="tool-name">Image Converter</div>
-    <div class="tool-desc">Convert JPG, PNG, WebP, GIF, BMP, AVIF and SVG images to WebP, JPG or PNG in your browser — bulk convert, ZIP download and SEO-friendly file names. Nothing is uploaded.</div>
-    <div class="tool-tags">
-      <span class="tool-tag">Page Speed</span>
-      <span class="tool-tag green">Image SEO</span>
-      <span class="tool-tag orange">GitHub Pages</span>
-    </div>
-  </div>
-  <span class="tool-free-badge">Free</span>
-</a>
-
-    </div>
-    <p class="tools-no-results" id="toolsNoResults">No tools match your search. Try a different keyword.</p>
-  </div>
+<div class="tools-layout">
+<aside class="tools-sidebar">
+<div class="side-heading">Categories</div>
+<a class="side-item" data-target="cat-on-page-seo" href="#cat-on-page-seo"><span class="side-icon-badge">📝</span><span class="side-label">On-Page SEO</span><span class="side-count">8</span></a>
+<a class="side-item" data-target="cat-content-seo" href="#cat-content-seo"><span class="side-icon-badge">✍️</span><span class="side-label">Content SEO</span><span class="side-count">3</span></a>
+<a class="side-item" data-target="cat-technical-seo-crawling-indexing" href="#cat-technical-seo-crawling-indexing"><span class="side-icon-badge">⚙️</span><span class="side-label">Technical SEO — Crawling &amp; Indexing</span><span class="side-count">10</span></a>
+<a class="side-item" data-target="cat-structured-data-social-sharing" href="#cat-structured-data-social-sharing"><span class="side-icon-badge">🧩</span><span class="side-label">Structured Data &amp; Social Sharing</span><span class="side-count">4</span></a>
+<a class="side-item" data-target="cat-performance-site-audits" href="#cat-performance-site-audits"><span class="side-icon-badge">⚡</span><span class="side-label">Performance &amp; Site Audits</span><span class="side-count">6</span></a>
+<a class="side-item" data-target="cat-site-health-security-domain" href="#cat-site-health-security-domain"><span class="side-icon-badge">🔒</span><span class="side-label">Site Health, Security &amp; Domain</span><span class="side-count">5</span></a>
+<a class="side-item" data-target="cat-image-conversion-utilities" href="#cat-image-conversion-utilities"><span class="side-icon-badge">🖼️</span><span class="side-label">Image &amp; Conversion Utilities</span><span class="side-count">4</span></a>
+</aside>
+<div class="tools-inner">
+<div class="tools-category-block" id="cat-on-page-seo">
+<div class="tools-category-title"><span class="cat-icon-badge">📝</span><span class="cat-title-text">On-Page SEO</span><span class="tools-category-count">8 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="keyword-research-tool.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔍</div><div class="tool-name">Keyword Research Tool</div><div class="tool-search-meta">Paste a URL and get 20 relevance-ranked keyword ideas — on-page content signals plus real Google Autocomplete suggestions. Keyword Research Content Strategy Flask + Render</div></a>
+<a class="tool-card" href="meta-details-extractor.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔍</div><div class="tool-name">Meta Details Extractor</div><div class="tool-search-meta">Extract H1, meta title, meta description &amp; meta keywords from up to 200 URLs at once — with an on-page health score. On-Page SEO Bulk Audit Python + Flask</div></a>
+<a class="tool-card" href="meta-tags-analyzer.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📋</div><div class="tool-name">Meta Tags Analyzer</div><div class="tool-search-meta">Paste a URL to check its meta title, description, keywords, robots, canonical and Open Graph tags — with character-count warnings and a live search-result preview. Technical SEO On-Page SEO Python + Flask</div></a>
+<a class="tool-card" href="meta-tag-generator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">✍️</div><div class="tool-name">Meta Tag Generator</div><div class="tool-search-meta">Enter a URL and keyword to get an SEO meta title, description and keywords that fit Google's character and pixel limits, with a live preview and an optional AI rewrite. On-Page SEO AI-assisted Python + Flask</div></a>
+<a class="tool-card" href="meta-tags-length-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📏</div><div class="tool-name">Meta Tags Length Checker</div><div class="tool-search-meta">Check meta titles and descriptions in characters and pixels with a Google preview, and audit robots, canonical, Open Graph and Twitter tags for any page. On-Page SEO Meta Tags Flask + Vercel</div></a>
+<a class="tool-card" href="header-tags-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🏷️</div><div class="tool-name">Header Tags Extractor &amp; Checker</div><div class="tool-search-meta">Pull all H1–H6 tags from up to 200 URLs in order, view the heading structure as a tree, and flag missing H1s, multiple H1s &amp; skipped levels. On-Page SEO Structure Check Python + Flask</div></a>
+<a class="tool-card" href="serp-snippet-preview.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔎</div><div class="tool-name">SERP Snippet Preview</div><div class="tool-search-meta">See your title and meta description exactly as Google shows them on desktop and mobile — with pixel meters, keyword bolding, a snippet score and A/B compare. On-Page SEO CTR Flask + Render</div></a>
+<a class="tool-card" href="image-alt-text-auditor.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🖼️</div><div class="tool-name">Image Alt Text Auditor</div><div class="tool-search-meta">Find every image on a page and grade its alt text: missing, generic, file-name, too long, keyword-stuffed, duplicated, plus image links with no name and extra image SEO hints. On-Page SEO Accessibility Flask + Render</div></a>
 </div>
-
+</div>
+<div class="tools-category-block" id="cat-content-seo">
+<div class="tools-category-title"><span class="cat-icon-badge">✍️</span><span class="cat-title-text">Content SEO</span><span class="tools-category-count">3 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="keyword-density-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🎯</div><div class="tool-name">Keyword Density Checker</div><div class="tool-search-meta">Check single-keyword and phrase-level density in any text or page — with a healthy 1–3% range check. On-Page SEO Content Optimization Flask + Render</div></a>
+<a class="tool-card" href="word-count-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📖</div><div class="tool-name">Word Count Checker</div><div class="tool-search-meta">Count words and characters, get your Flesch Reading Ease and grade level, and see exactly which sentences to rewrite — with SEO length and AI-readiness checks. Content SEO Readability Flask + Render</div></a>
+<a class="tool-card" href="plagiarism-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📑</div><div class="tool-name">Plagiarism Checker</div><div class="tool-search-meta">Check a page or draft against the web or your chosen URLs — exact copies and close rewrites highlighted, with a uniqueness score and matching sources. Content SEO Duplicate Content Flask + Vercel</div></a>
+</div>
+</div>
+<div class="tools-category-block" id="cat-technical-seo-crawling-indexing">
+<div class="tools-category-title"><span class="cat-icon-badge">⚙️</span><span class="cat-title-text">Technical SEO — Crawling &amp; Indexing</span><span class="tools-category-count">10 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="http-status-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🚦</div><div class="tool-name">HTTP Status Code Checker</div><div class="tool-search-meta">Paste a batch of URLs to check status codes, redirect chains, and final destinations — with a health score and CSV/Excel export. Technical SEO Site Audit Python + Flask</div></a>
+<a class="tool-card" href="broken-link-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔗</div><div class="tool-name">Broken Link Checker</div><div class="tool-search-meta">Crawl a site or paste page URLs to find broken internal and external links, redirects, and dead pages — with a health score. Technical SEO Site Audit Python + Flask</div></a>
+<a class="tool-card" href="link-analyser.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔗</div><div class="tool-name">Link Analyser</div><div class="tool-search-meta">Paste any URL and get an instant breakdown of its links — internal vs external, dofollow vs nofollow — with a filterable table and CSV export. Technical SEO On-Page Audit Python + Flask</div></a>
+<a class="tool-card" href="robots-txt-generator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🤖</div><div class="tool-name">Robots.txt Generator</div><div class="tool-search-meta">Build a valid robots.txt with presets, per-crawler and AI-bot rules, live preview, URL tester, and one-click copy or download. Technical SEO Crawl Control Python + Flask</div></a>
+<a class="tool-card" href="xml-sitemap-generator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🗺️</div><div class="tool-name">XML Sitemap Generator</div><div class="tool-search-meta">Crawl a website and build a clean sitemap.xml — skips noindex, redirected and broken pages, with priority, changefreq and lastmod controls. Technical SEO Indexing Python + Flask</div></a>
+<a class="tool-card" href="xml-sitemap-validator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🗺️</div><div class="tool-name">XML Sitemap Validator</div><div class="tool-search-meta">Validate your sitemap against Google's rules and bulk-check every URL for status codes, redirects, noindex and canonicals. Then download a clean sitemap. Technical SEO Indexing Flask + Render</div></a>
+<a class="tool-card" href="canonical-hreflang-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🌐</div><div class="tool-name">Canonical &amp; Hreflang Checker</div><div class="tool-search-meta">Validate canonical tags and hreflang codes, check return links across every language version with a visual matrix, and get corrected tags to copy. Technical SEO International SEO Flask + Render</div></a>
+<a class="tool-card" href="robots-txt-tester.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🤖</div><div class="tool-name">Robots.txt Tester</div><div class="tool-search-meta">Test many URLs against Googlebot, Bingbot and AI crawlers at once — see the exact rule that allows or blocks each one, plus a health score and AI search readiness. Technical SEO AI Crawlers Flask + Render</div></a>
+<a class="tool-card" href="google-index-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔎</div><div class="tool-name">Google Index Checker</div><div class="tool-search-meta">Check if Google can index up to 20 URLs at once — see the exact reason (noindex, robots.txt, redirect, canonical, 404) and confirm on Google in one click. Technical SEO Indexing Flask + Vercel</div></a>
+<a class="tool-card" href="indexed-pages-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📚</div><div class="tool-name">Indexed Pages Checker</div><div class="tool-search-meta">See how many pages of any website Google has indexed — for the whole site or a single section — and verify it on Google in one click. Technical SEO Indexing Flask + Vercel</div></a>
+</div>
+</div>
+<div class="tools-category-block" id="cat-structured-data-social-sharing">
+<div class="tools-category-title"><span class="cat-icon-badge">🧩</span><span class="cat-title-text">Structured Data &amp; Social Sharing</span><span class="tools-category-count">4 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="open-graph-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔗</div><div class="tool-name">Open Graph Checker</div><div class="tool-search-meta">Preview your page across 8 platforms, catch broken og:images and robots.txt crawler blocks, and score your tags out of 100 — with bulk checking for up to 20 URLs. Technical SEO Social Sharing Flask + Render</div></a>
+<a class="tool-card" href="open-graph-generator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🏷️</div><div class="tool-name">Open Graph Generator</div><div class="tool-search-meta">Create Open Graph &amp; Twitter Card tags with live previews on 8 platforms, a 1200×630 share image maker, and ready-to-paste code for HTML, Next.js, React and WordPress. Technical SEO Social Sharing Flask + Render</div></a>
+<a class="tool-card" href="schema-markup-generator.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🧩</div><div class="tool-name">Schema Markup Generator</div><div class="tool-search-meta">Create Google-ready JSON-LD by typing into a short form or auto-filling it from a URL — with 2026 rich result labels and Personal Loan, Home Loan &amp; Bank Branch templates. Technical SEO Structured Data Flask + Render</div></a>
+<a class="tool-card" href="utm-link-builder.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🏷️</div><div class="tool-name">UTM Link Builder</div><div class="tool-search-meta">Build clean, GA4-ready campaign links with one-click presets, a GA4 channel predictor, naming checks and QR codes. Campaign Tracking GA4 Browser Tool</div></a>
+</div>
+</div>
+<div class="tools-category-block" id="cat-performance-site-audits">
+<div class="tools-category-title"><span class="cat-icon-badge">⚡</span><span class="cat-title-text">Performance &amp; Site Audits</span><span class="tools-category-count">6 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="website-seo-score-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🧪</div><div class="tool-name">Website SEO Score Checker</div><div class="tool-search-meta">Paste a URL and get a weighted 0-100 SEO score across meta tags, content, headings, links and technical setup, with a plain-English fix for every issue. Technical SEO On-Page Audit Python + Flask</div></a>
+<a class="tool-card" href="page-speed-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">⚡</div><div class="tool-name">Page Speed Checker</div><div class="tool-search-meta">Tests any URL's mobile &amp; desktop speed side by side — performance score, Core Web Vitals, and prioritized fixes. Performance Core Web Vitals Python + Flask</div></a>
+<a class="tool-card" href="mobile-friendly-test.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📱</div><div class="tool-name">Mobile Friendly Test</div><div class="tool-search-meta">See how Google renders any page on a phone: 10 mobile usability checks, a screenshot, mobile-vs-desktop parity and copy-paste fixes. Mobile SEO Mobile-First Indexing Python + Flask</div></a>
+<a class="tool-card" href="core-web-vitals-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🎯</div><div class="tool-name">Core Web Vitals (CrUX) Checker</div><div class="tool-search-meta">Real-user LCP, INP &amp; CLS for any page or site — mobile vs desktop pass/fail, 6-month trend and fix tips. Core Web Vitals Real-User Data Python + Flask</div></a>
+<a class="tool-card" href="spam-score-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🛡️</div><div class="tool-name">Spam Score Checker</div><div class="tool-search-meta">Scan any website for hidden links, spammy words, cloaking and hacked-code signs from Google's spam policies — get a 0–100 risk score, a backlink verdict and a fix for every flag. Off-Page SEO Link Vetting Flask + Vercel</div></a>
+<a class="tool-card" href="da-pa-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🏆</div><div class="tool-name">DA PA Checker</div><div class="tool-search-meta">Bulk-check the Domain Authority (DA) of up to 20 websites — with global rank, referring domains, 12-month DA trend and a side-by-side competitor comparison. Off-Page SEO Link Building Flask + Vercel</div></a>
+</div>
+</div>
+<div class="tools-category-block" id="cat-site-health-security-domain">
+<div class="tools-category-title"><span class="cat-icon-badge">🔒</span><span class="cat-title-text">Site Health, Security &amp; Domain</span><span class="tools-category-count">5 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="domain-age-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📅</div><div class="tool-name">Domain Age Checker</div><div class="tool-search-meta">Check a domain's exact registration date, age, expiry and registrar from the registry (RDAP/WHOIS), with a Wayback Machine cross-check — single or bulk, with CSV export. Technical SEO Domain Vetting Flask + Render</div></a>
+<a class="tool-card" href="website-ping-test.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">📡</div><div class="tool-name">Website Ping Test</div><div class="tool-search-meta">Checks if any website is up and how fast it responds — response times, packet loss, DNS/IP, SSL expiry and redirects. Bulk mode for 20 URLs. Technical SEO Uptime Python + Flask</div></a>
+<a class="tool-card" href="ssl-certificate-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔒</div><div class="tool-name">SSL Certificate Checker</div><div class="tool-search-meta">Check SSL expiry, issuer, chain and TLS version for up to 10 domains — plus HTTPS SEO checks for 301 redirects, www vs non-www, HSTS and mixed content. Technical SEO HTTPS Flask + Render</div></a>
+<a class="tool-card" href="dns-lookup-whois.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🌐</div><div class="tool-name">DNS Lookup &amp; WHOIS</div><div class="tool-search-meta">All DNS records, domain registration (registrar, age, expiry) and SPF / DMARC / DKIM email checks on one screen, with a health score and plain-English fixes. Technical SEO Email Security Flask + Render</div></a>
+<a class="tool-card" href="wayback-machine-checker.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🕰️</div><div class="tool-name">Wayback Machine Checker</div><div class="tool-search-meta">See any URL's archive history — first seen, status and redirect timeline, long gaps and red flags — with before/after compare links and CSV export. Domain Research Archive History Flask + Vercel</div></a>
+</div>
+</div>
+<div class="tools-category-block" id="cat-image-conversion-utilities">
+<div class="tools-category-title"><span class="cat-icon-badge">🖼️</span><span class="cat-title-text">Image &amp; Conversion Utilities</span><span class="tools-category-count">4 tools</span></div>
+<div class="tools-grid">
+<a class="tool-card" href="text-to-html-converter.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🧾</div><div class="tool-name">Text to HTML Converter</div><div class="tool-search-meta">Paste from Word, Google Docs or plain text and get clean, semantic HTML, with a heading and link SEO check, live stats, copy and download. Content On-Page SEO GitHub Pages</div></a>
+<a class="tool-card" href="image-compressor.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🗜️</div><div class="tool-name">Image Compressor</div><div class="tool-search-meta">Shrink JPG, PNG and WebP images in your browser — convert to WebP, resize, compare before/after and get SEO-friendly file names. Nothing is uploaded. Page Speed Core Web Vitals GitHub Pages</div></a>
+<a class="tool-card" href="image-resizer.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🖼️</div><div class="tool-name">Image Resizer</div><div class="tool-search-meta">Resize and compress images in bulk — WebP, JPG or PNG, one-click size presets, before/after savings and ZIP download. Nothing is uploaded. Image SEO Page Speed GitHub Pages</div></a>
+<a class="tool-card" href="image-converter.html"><span class="free-dot" title="Free"></span><div class="tool-icon-wrap">🔄</div><div class="tool-name">Image Converter</div><div class="tool-search-meta">Convert JPG, PNG, WebP, GIF, BMP, AVIF and SVG images to WebP, JPG or PNG in your browser — bulk convert, ZIP download and SEO-friendly file names. Nothing is uploaded. Page Speed Image SEO GitHub Pages</div></a>
+</div>
+</div>
+<p class="tools-no-results" id="toolsNoResults">No tools match your search. Try a different keyword.</p>
+</div>
+</div>
+</div>
 <!-- FOOTER -->
 <footer class="footer-slim">
-  <div class="footer-slim-inner">
-    <p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
-    <div class="social-row">
-      <a href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" class="social-btn" title="LinkedIn">in</a>
-      <a href="mailto:mahalakshmi.digitalpro@gmail.com" class="social-btn" title="Email">✉</a>
-      <a href="https://www.instagram.com/mahapravin26/" target="_blank" class="social-btn" title="Instagram">IG</a>
-    </div>
-  </div>
+<div class="footer-slim-inner">
+<p>© 2026 Mahalakshmi Marimuthu · All rights reserved · Bangalore, India</p>
+<div class="social-row">
+<a class="social-btn" href="https://linkedin.com/in/mahalakshmimarimuthu" target="_blank" title="LinkedIn">in</a>
+<a class="social-btn" href="mailto:mahalakshmi.digitalpro@gmail.com" title="Email">✉</a>
+<a class="social-btn" href="https://www.instagram.com/mahapravin26/" target="_blank" title="Instagram">IG</a>
+</div>
+</div>
 </footer>
-
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -758,6 +331,24 @@
     });
     toolsNoResults.classList.toggle('show', visibleCount === 0 && query !== '');
   });
+
+
+  // Category sidebar — scroll-spy highlight
+  const sideItems = document.querySelectorAll('.side-item');
+  const catBlocks = document.querySelectorAll('.tools-category-block');
+  if (sideItems.length && catBlocks.length) {
+    const catObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          sideItems.forEach(item => {
+            item.classList.toggle('active', item.dataset.target === id);
+          });
+        }
+      });
+    }, { rootMargin: '-90px 0px -70% 0px', threshold: 0 });
+    catBlocks.forEach(block => catObserver.observe(block));
+  }
 </script>
 </body>
 </html>
